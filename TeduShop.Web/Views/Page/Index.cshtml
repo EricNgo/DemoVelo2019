@@ -1,0 +1,36 @@
+﻿@model TeduShop.Web.Models.PageViewModel
+@{
+    ViewBag.Title = @Model.Name;
+    Layout = "~/Views/Shared/Layouts.cshtml";
+}
+
+<div id="cate" class="categories">
+    <div class="container">
+        <h3>WELCOME</h3>
+        <div class="categorie-grids">
+            <a href="bicycles.html">
+                <div class="col-md-4 cate-grid grid1">
+                    <h4>@Model.Name</h4>
+                    <p>  @Html.Raw(Model.Content)</p>
+                    <a class="store" href="bicycles.html">GO TO STORE</a>
+                </div>
+            </a>
+            <a href="bicycles.html">
+                <div class="col-md-4 cate-grid grid2">
+                    <h4>PREMIMUM SERIES</h4>
+                    <p>Exclusive Bike Components</p>
+                    <a class="store" href="bicycles.html">GO TO STORE</a>
+                </div>
+            </a>
+            <a href="bicycles.html">
+                <div class="col-md-4 cate-grid grid3">
+                    <h4>CITY BIKES</h4>
+                    <p>Street Playground</p>
+                    <a class="store" href="bicycles.html">GO TO STORE</a>
+                </div>
+            </a>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+

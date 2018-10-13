@@ -1,0 +1,102 @@
+﻿<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <meta name="keywords" content="@ViewBag.MetaKeyword" />
+    <meta name="description" content="@ViewBag.MetaDescription" />
+    <link href="~/Assets/client/css/bootstrap.css" rel='stylesheet' type='text/css' />
+
+    <!-- Custom Theme files -->
+    <link href="~/Assets/client/css/form.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Assets/client/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="~/Assets/client/css/hover.css" rel="stylesheet" />
+    <link href="~/Assets/client/css/searchstyle.css" rel="stylesheet" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Bike-shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <!--webfont-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:500,900,100,300,700,400' rel='stylesheet' type='text/css'>
+    <!--webfont-->
+    <!-- dropdown -->
+    <!--js-->
+</head>
+<body>
+    <!--banner-->
+    <div class="banner-bg banner-sec">
+        <div class="container">
+            @{ Html.RenderAction("HeaderStore", "Store");}
+        </div>
+    </div>
+    <!--/banner-->
+    <div class="parts">
+        <div class="container">
+            @*<h2>BIKE-PARTS ALL</h2>*@
+
+            <div class="searchss">
+                <form action="/tim-kiem.html" method="get">
+                    <input class="searchTermss" type="text" id="txtKeyword" name="keyword" placeholder="Search..." />
+
+                    <input class="searchButtonss" type="submit" value="Search" />
+                </form>
+            </div>
+
+            <div class="bike-parts-sec">
+
+                <!--Trang Index(giữa) của Store-->
+                @RenderBody()
+
+                @*@RenderSection("storeProducts", required: false)*@
+                <!-- Lề trái category của Store-->
+                @{ Html.RenderAction("CategoryStore", "Store");}
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    @*<script src="~/Assets/client/js/bootstrap.min.js"></script>*@
+    <!-- jQuery (Bootstrap's JavaScript plugins) -->
+    <script src="~/Assets/client/js/jquery.min.js"></script>
+  
+
+    <script src="~/Assets/client/js/scripts.js"></script>
+    <script src="~/Assets/admin/libs/jquery/dist/jquery.min.js"></script>
+    <script src="~/Assets/admin/libs/jquery-ui/jquery-ui.js"></script>
+    <script src="~/Assets/admin/libs/jquery-ui/jquery-ui.min.js"></script>
+
+
+    <script src="~/Assets/client/js/common1.js"></script>
+    <script src="~/Assets/client/js/responsiveslides.min.js"></script>
+    <script src="~/Assets/client/js/jquery.easydropdown.js"></script>
+    <link href="~/Assets/client/css/nav.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="~/Assets/client/js/scripts.js" type="text/javascript"></script>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script>
+        $(function () {
+            $("#slider").responsiveSlides({
+                auto: true,
+                nav: true,
+                speed: 500,
+                namespace: "callbacks",
+                pager: true,
+            });
+        });
+    </script>
+    <!---->
+    @{ Html.RenderAction("FooterStore", "Store");}
+    <!---->
+    <!--JQUERY-->
+
+</body>
+</html>
+
+
+
+

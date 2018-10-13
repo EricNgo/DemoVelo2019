@@ -1,0 +1,115 @@
+﻿@model TeduShop.Web.Infrastructure.Core.PaginationSet<TeduShop.Web.Models.ProductViewModel>
+@{
+    var keyword = (string)ViewBag.Keyword;
+
+    ViewBag.Title = "Kết quả tìm kiếm cho từ khóa " + keyword;
+    ViewBag.MetaKeyword = "Kết quả tìm kiếm cho từ khóa " + keyword;
+    ViewBag.MetaDescription = "Kết quả tìm kiếm cho từ khóa " + keyword;
+
+
+    Layout = "~/Views/Shared/StoreLayouts.cshtml";
+
+}
+<div class="parts">
+<div class="bike-parts">
+    @if (Model.Count > 0)
+    {
+        //var startPageIndex1 = Math.Max(1, Model.Page - Model.MaxPage / 2);
+        //var endPageIndex1 = Math.Min(Model.TotalPages, Model.Page + Model.MaxPage / 2);
+        <div class="top">
+
+            <ul>
+                <a href="#">Kết quả từ khóa tìm được: @keyword - <span>@Model.TotalCount sản phẩm</span> </a>
+                @*<br />
+                <li>Sort : </li>
+                @for (int i = startPageIndex1; i <= endPageIndex1; i++)
+                {
+                    <li><a href="?page=@Model.Page&sort=popular&page=@i&Keyword=@keyword">Popular |</a></li>
+                    <li><a href="?page=@Model.Page&sort=new&Keyword=@keyword">New |</a></li>
+                    <li><a href="?page=@Model.Page&sort=discount&Keyword=@keyword">Discount |</a></li>
+                    <li><a href="?page=@Model.Page&sort=price&Keyword=@keyword">Low Price</a></li>
+                }
+
+                <br />*@
+            </ul>
+        </div>
+        <div class="bike-apparels">
+            <div class="parts1">
+                @foreach (var product in Model.Items)
+                {
+                    var url = "/" + product.Alias + ".p-" + product.ID + ".html";
+                    <a href="@url">
+                        <div class="part-sec">
+                            <div><img src="@product.Image" alt="@product.Name" /></div>
+                            <div class="bike-cost">
+                                <h5>@product.Price.ToString("N0") $</h5>
+                                <h5><span>Model :<Strong> @product.Name</Strong></span></h5>
+                                <div class="bike-cart">
+                                    <a class="add-cart  grow-rotate" href="@url">Quick View</a>
+                                    <a class="buy float-shadow" href="@url">BUY NOW</a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </a>
+                }
+            </div>
+            <div class="clearfix"></div>
+            @if (Model.TotalPages > 1)
+            {
+                // Create numeric links
+                var startPageIndex = Math.Max(1, Model.Page - Model.MaxPage / 2);
+                var endPageIndex = Math.Min(Model.TotalPages, Model.Page + Model.MaxPage / 2);
+                <nav>
+                    <ul class="pagination">
+                        @if (Model.Page > 1)
+                        {
+                            <li>
+                                <a href="?Keyword=@keyword&page=1" aria-label="First">
+                                    <i class="fa fa-angle-double-left"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="?Keyword=@keyword&page=@(Model.Page-1)" aria-label="Previous">
+                                    <i class="fa fa-angle-double-left"></i>
+                                </a>
+                            </li>
+                        }
+
+                        @for (int i = startPageIndex; i <= endPageIndex; i++)
+                        {
+                            if (Model.Page == i)
+                            {
+                                <li class="active"><a href="?Keyword=@keyword&page=@i" title="Trang @i">@i</a></li>
+                              
+                            }
+                            else
+                            {
+                                <li><a href="?Keyword=@keyword&page=@i" title="Trang @i">@i</a></li>
+                            }
+                        }
+                        @if (Model.Page < Model.TotalPages)
+                        {
+                            <li>
+                                <a href="?Keyword=@keyword&page=@(Model.Page+1)" aria-label="Next">
+                                    <i class="fa fa-angle-double-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="?Keyword=@keyword&page=@Model.TotalPages" aria-label="Last">
+                                    <i class="fa fa-angle-double-right"></i>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </nav>
+            }
+        </div>
+      
+    }
+    else
+    {
+        <div class="text-center">Không có bản ghi nào được tìm thấy.</div>
+    }
+</div>
+</div>
