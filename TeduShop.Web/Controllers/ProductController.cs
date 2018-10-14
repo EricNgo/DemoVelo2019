@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -68,6 +69,8 @@ namespace TeduShop.Web.Controllers
 
         public ActionResult Category(int id, int page = 1,string sort="")
         {
+
+      
             int pageSize = int.Parse(ConfigHelper.GetByKey("PageSize"));
             int totalRow = 0;
             var productModel = _productService.GetListProductByCategoryIdPaging(id, page, pageSize,sort, out totalRow);
@@ -76,6 +79,7 @@ namespace TeduShop.Web.Controllers
 
             var category = _productCategoryService.GetById(id);
             ViewBag.Category = Mapper.Map<ProductCategory, ProductCategoryViewModel>(category);
+      
             var paginationSet = new PaginationSet<ProductViewModel>()
             {
                 Items = productViewModel,
@@ -135,6 +139,14 @@ namespace TeduShop.Web.Controllers
             };
 
             return View(paginationSet);
+        }
+
+        [ChildActionOnly]
+        public ActionResult SideBar()
+        {
+            var model = _productCategoryService.GetAll();
+            var listProductCategoryViewModel = Mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(model);
+            return PartialView(listProductCategoryViewModel);
         }
     }
 }

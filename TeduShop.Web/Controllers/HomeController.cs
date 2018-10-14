@@ -31,7 +31,7 @@ namespace TeduShop.Web.Controllers
         public ActionResult Index()
         {
             var homeViewModel = new HomeViewModel();
-            var lastestProductModel = _productService.GetLastest(4);
+            var lastestProductModel = _productService.GetLastest(8);
             var topSaleProductModel = _productService.GetHotProduct(2);
             var lastestProductViewModel = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(lastestProductModel);
             var topSaleProductViewModel = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(topSaleProductModel);

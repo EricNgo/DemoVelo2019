@@ -1,0 +1,23 @@
+﻿@model IEnumerable<TeduShop.Web.Models.ProductCategoryViewModel>
+
+@foreach (var category in Model.Where(x => x.ParentID == null))
+{
+    var url1 = "/" + category.Alias + ".pc-" + category.ID + ".html" + "/";
+    var childCategories = Model.Where(x => x.ParentID == category.ID);
+    <aside class="widget woocommerce widget_product_categories">
+
+       
+        <h2 class="widget-title"><span>@category.Name</span></h2>
+      
+        <ul class="product-categories">
+            @if (childCategories.Count() > 0)
+            {
+                foreach (var childCategory in childCategories)
+                {
+                    var url = "/" + childCategory.Alias + ".pc-" + childCategory.ID + ".html" + "/";
+                    <li class="cat-item cat-item-68"><a href="@url">@childCategory.Name</a></li>
+                }
+            }
+        </ul>
+    </aside>
+}

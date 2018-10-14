@@ -3,121 +3,611 @@
     ViewBag.Title = Model.Name;
     ViewBag.MetaKeyword = Model.MetaKeyword;
     ViewBag.MetaDescription = Model.MetaDescription;
-    Layout = "~/Views/Shared/ProductLayouts.cshtml";
+    Layout = "~/Views/Shared/_Layouts.cshtml";
 }
+<div class="single single-product woocommerce woocommerce-page offcanvas-type-default  offcanvas-left">
+    <div class="k2t-body">
+        <div class="k2t-content ">
+            <section class="k2t-wrap">
+                <div id="main" class="k2t-shop ">
+                    <div itemscope class="dhvc-woocommerce-page post-1847 product type-product status-publish has-post-thumbnail product_brand-bmx-bikes product_brand-cyclocross product_cat-sport product_tag-mustard product_tag-sport shipping-taxable purchasable product-type-simple product-cat-sport product-tag-mustard product-tag-sport outofstock">
 
-<div class="product">
-<div class="container">
-    <div class="ctnt-bar cntnt">
-        <div class="content-bar">
-            <div class="single-page">
-                <div class="product-head">
-                    <a href="index.html"><span>HOME</span></a> 
-                </div>
-                <!--Include the Etalage files-->
-                <link rel="stylesheet" href="~/Assets/client/css/etalage.css">
-                <script src="~/Assets/client/js/jquery.etalage.min.js"></script>
-                <script>
-                    jQuery(document).ready(function ($) {
+                        <div class="vc_row wpb_row vc_row-fluid product-detail custom_1438070110372" style="position: relative;background-color:#ffffff;">
+                            <div class="container">
+                                <div class="vc_col-sm-6 wpb_column vc_column_container custom_1439293237941" style="position: relative;">
+                                    <div class="wpb_wrapper">
+                                        <div id="single-product-image-wrap">
+                                            <div class="product-img-cont">
+                                                <div class="product-img">
+                                                    <div class="item">
+                                                        <img src="@Model.Image" alt="@Model.Name" />
+                                                        <a class="click-fullscreen" href="@Model.Image">
+                                                            <span class="icon-size-fullscreen"></span>
+                                                        </a>
+                                                    </div>
+                                                    @{
+                                                        var moreImages = (List<string>)ViewBag.MoreImages;
+                                                        if (moreImages.Count > 0)
+                                                        {
+                                                            foreach (var image in moreImages)
+                                                            {
+                                                                <div class="item">
+                                                                    <img src="@image" alt="" />
+                                                                    <a class="click-fullscreen" href="@image">
+                                                                        <span class="icon-size-fullscreen"></span>
+                                                                    </a>
+                                                                </div>
+                                                            }
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
 
-                        $('#etalage').etalage({
-                            thumb_image_width: 500,
-                            thumb_image_height: 400,
-                            source_image_width: 800,
-                            source_image_height: 1000,
-                            show_hint: true,
-                            click_callback: function (image_anchor, instance_id) {
-                                alert('Callback example:\nYou clicked on an image with the anchor: "' + image_anchor + '"\n(in Etalage instance: "' + instance_id + '")');
-                            }
-                        });
+                                  
+                                        </div><!--end:single-product-image-wrap-->
+                                    </div>
+                                </div>
+                                <div class="vc_col-sm-6 wpb_column vc_column_container custom_1438070083084" style="position: relative;">
+                                    <div class="wpb_wrapper">
+                                        <div class="product-name">
+                                            <div class="star-rating" title="Rated 5.00 out of 5">
+                                                <p class="stars">
+                                                    <span>
+                                                        <a class="star-5" href="#" style="margin: -40px 0px 0px 80px;"></a>
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
 
-                    });
-                </script>
-                <!--//details-product-slider-->
-                <div class="details-left-slider">
-                    <div class="grid images_3_of_2">
-                        <ul id="etalage">
-                            <li>
-                                <a href="optionallink.html">
-                                    <img class="etalage_thumb_image" src="@Model.Image" class="img-responsive" alt="@Model.Name" />
-                                    <img class="etalage_source_image" src="@Model.Image" class="img-responsive" title="" alt="@Model.Name" />
-                                </a>
-                            </li>
+                                        <h1 class="product_title entry-title">@Model.Name</h1>
+
+                                        <span class="sku_wrapper">
+                                            <span>Item </span>
+                                            @foreach (var tag in (IEnumerable<TeduShop.Web.Models.TagViewModel>)ViewBag.Tags)
+                                            {
+                                            <span class="sku">
+                                                <a href="/tag/@(tag.ID).html/">#@(tag.Name) </a>
+                                            </span>
+                                            }
+                                            </span>
+
+                                        <div>
+                                            <p class="price" style="margin: 10px 0 25px; font-size: 30px"><span class="amount">&#36;850</span></p>
+                                        </div>
+                                        <div class="product-excerpt">
+                                            <div class="product-description">
+                                                <p>@Model.Description</p>
+                                                <div class="stock">
+                                                    <span class="stock in-stock">@Model.Quantity in stock</span>
+                                                    <i class="fa fa-check-circle"></i>
+                                                </div>
+                                                <div class="size-guide">
+                                                    <a href="#popup1">
+                                                        <span>Size Guide</span>
+                                                        <i class="fa fa-info-circle"></i>
+                                                    </a>
+                                                </div>
+                                                <div id="popup1" class="overlay">
+                                                    <div class="popup">
+                                                        <a class="close" href="#"><i class="fa fa-close"></i></a>
+                                                        <div class="content">
+                                                            <div class="vc_row wpb_row vc_row-fluid" style="position: relative;">
+                                                                <div class="container">
+                                                                    <div class="vc_col-sm-12 wpb_column vc_column_container" style="position: relative;">
+                                                                        <div class="wpb_wrapper">
+                                                                            <div class="k2t-heading align-left no-border no-subtitle underline h3 three_dotted">
+                                                                                <div class="k2t-heading-inner">
+                                                                                    <div class="text">
+                                                                                        <h3 class="h"><span>Geometry &amp; Sizes</span></h3>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="wpb_text_column wpb_content_element ">
+                                                                                <div class="wpb_wrapper">
+                                                                                    <p>The SC-01's geometry is designed to please urban commuters. The result is a responsive but stable bicycle that likes going fast, but is also remarkably comfortable. With a semi-upright body position that lets you see and be seen. It is available in 3 sizes.</p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="wpb_text_column wpb_content_element ">
+                                                                                <div class="wpb_wrapper">
+                                                                                    <div class="tg-wrap">
+                                                                                        <table class="tg">
+                                                                                            <tbody>
+                                                                                                <tr>
+                                                                                                    <th class="tg-a"></th>
+                                                                                                    <th class="tg-a">S</th>
+                                                                                                    <th class="tg-a">M</th>
+                                                                                                    <th class="tg-a">L</th>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td class="tg-a">Top tube (H)</td>
+                                                                                                    <td class="tg-b">530</td>
+                                                                                                    <td class="tg-b">560</td>
+                                                                                                    <td class="tg-b">590</td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td class="tg-a">Seat tube (CT)</td>
+                                                                                                    <td class="tg-b">540</td>
+                                                                                                    <td class="tg-b">575</td>
+                                                                                                    <td class="tg-b">600</td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td class="tg-a">Head tube angle</td>
+                                                                                                    <td class="tg-b">71.5</td>
+                                                                                                    <td class="tg-b">72.0</td>
+                                                                                                    <td class="tg-b">72.5</td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td class="tg-a">Seat tube angle</td>
+                                                                                                    <td class="tg-b">73.5</td>
+                                                                                                    <td class="tg-b">73.0</td>
+                                                                                                    <td class="tg-b">73.0</td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td class="tg-a">BB drop</td>
+                                                                                                    <td class="tg-b">70</td>
+                                                                                                    <td class="tg-b">70</td>
+                                                                                                    <td class="tg-b">70</td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td class="tg-a">Chain Stay</td>
+                                                                                                    <td class="tg-b">433</td>
+                                                                                                    <td class="tg-b">433</td>
+                                                                                                    <td class="tg-b">433</td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td class="tg-a">Fork Offset</td>
+                                                                                                    <td class="tg-b">45</td>
+                                                                                                    <td class="tg-b">45</td>
+                                                                                                    <td class="tg-b">45</td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td class="tg-a">Wheel Base</td>
+                                                                                                    <td class="tg-b">1002</td>
+                                                                                                    <td class="tg-b">1003</td>
+                                                                                                    <td class="tg-b">1003</td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="wishlist">
+                                                    <a href="#" data-product-id="1847" data-product-type="">
+                                                        <span>Add to Wishlist</span>
+                                                        <i class="fa fa-heart-o"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <form class="cart" method="post" enctype='multipart/form-data'>
+                                            <div class="quantity">
+                                                <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" />
+                                                <div class="qty-adjust">
+                                                    <a class="qty-plus" href="#"><i class="sf-icon-chevron-up"></i></a>
+                                                    <a class="qty-minus" href="#"><i class="sf-icon-chevron-down"></i></a>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="add-to-cart" value="1847" />
+                                            <button type="submit" class="single_add_to_cart_button button alt">Add to cart</button>
+                                        </form>
+                                        <div class="k2t-social-share">
+                                            <span class='share-title'>Share:</span>
+                                            <ul class="social">
+                                                <li>
+                                                    <a class="facebook" href="#">
+                                                        <i class="fa fa-facebook"></i>
+                                                        <span>Facebook</span>
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a class="twitter" href="#">
+                                                        <i class="fa fa-twitter"></i>
+                                                        <span>Twitter</span>
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a class="googleplus" href="#">
+                                                        <i class="fa fa-google-plus"></i>
+                                                        <span>Google Plus</span>
+                                                    </a>
+                                                </li>
+                                            </ul><!-- .social -->
+                                        </div><!-- .social-share -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vc_row wpb_row vc_row-fluid custom_1439265274538" style="position: relative;background-color:#f3f3f3;">
+                            <div class="container">
+                                <div class="vc_col-sm-3 wpb_column vc_column_container" style="position: relative;">
+                                    <div class="wpb_wrapper">
+                                        <div class="k2t-counter icon-top" data-delay="0">
+                                            <div class="counter-inner">
+                                                <div style="font-size: 32px;color: #ffbe2a;height: auto;line-height: inherit;" class="counter-icon"></div>
+                                                <div class="counter-number">
+                                                    <div class="counter-text">
+                                                        <span style="" class="title">TEST RIDES</span>
+                                                        <div class="desc"></div>
+                                                    </div>
+                                                    <h2 style="" class="number" data-from="0" data-to="24622" data-speed="1000" data-delayrefresh-interval="10">
+                                                        <span class="counter">24622</span>
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="vc_col-sm-3 wpb_column" style="position: relative;">
+                                    <div class="wpb_wrapper">
+                                        <div class="k2t-counter icon-top" data-delay="0">
+                                            <div class="counter-inner">
+                                                <div style="font-size: 32px;color: #ffbe2a;height: auto;line-height: inherit;" class="counter-icon"></div>
+                                                <div class="counter-number">
+                                                    <div class="counter-text">
+                                                        <span style="" class="title">BIKES SOLD</span>
+                                                        <div class="desc"></div>
+                                                    </div>
+                                                    <h2 style="" class="number" data-from="0" data-to="6134" data-speed="1000" data-delayrefresh-interval="10">
+                                                        <span class="counter">6134</span>
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="vc_col-sm-3 wpb_column vc_column_container" style="position: relative;">
+                                    <div class="wpb_wrapper">
+                                        <div class="k2t-counter icon-top" data-delay="0">
+                                            <div class="counter-inner">
+                                                <div style="font-size: 32px;color: #ffbe2a;height: auto;line-height: inherit;" class="counter-icon"></div>
+                                                <div class="counter-number">
+                                                    <div class="counter-text">
+                                                        <span style="" class="title">BIKES HIRED</span>
+                                                        <div class="desc"></div>
+                                                    </div>
+                                                    <h2 style="" class="number" data-from="0" data-to="7516" data-speed="1000" data-delayrefresh-interval="10">
+                                                        <span class="counter">7516</span>
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="dFYeVQhOlR" class="vc_col-sm-3 wpb_column vc_column_container" style="position: relative;">
+                                    <div class="wpb_wrapper">
+                                        <div class="k2t-counter icon-top" data-delay="0">
+                                            <div class="counter-inner">
+                                                <div style="font-size: 32px;color: #ffbe2a;height: auto;line-height: inherit;" class="counter-icon"></div>
+                                                <div class="counter-number">
+                                                    <div class="counter-text">
+                                                        <span style="" class="title">HAPPY COSTUMERS</span>
+                                                        <div class="desc"></div>
+                                                    </div>
+                                                    <h2 style="" class="number" data-from="0" data-to="12023" data-speed="1000" data-delayrefresh-interval="10">
+                                                        <span class="counter">12023</span>
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vc_row wpb_row vc_row-fluid custom_1438067732686" style="position: relative;">
+                            <div class="vc_col-sm-6 wpb_column vc_column_container custom_1438067711555" style="position: relative;">
+                                <div class="wpb_wrapper">
+                                    <div class="k2t-heading align-left no-border no-subtitle underline h2 three_dotted">
+                                        <div class="k2t-heading-inner">
+                                            <div class="text">
+                                                <h2 class="h"><span>Text Detail 1</span></h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="wpb_text_column wpb_content_element ">
+                                        <div class="wpb_wrapper">
+                                            <p>Frame: full Cr-Mo steel (470/530/570/610mm)</p>
+                                            <p>Colours: moss green, blue grey and mustard</p>
+                                            <p>*fitted as standard with ivory tyres</p>
+                                            <p>Gears: SHIMANO ACERA 8 speed with Rapidfire shift lever</p>
+                                            <p>Wheels &amp;amp; Tyres: silver rims and ivory side wall tyres* (650×25c) *some colours fitted with all ivory tyres</p>
+                                            <p>Details: Traditional handlebars with brown grips &amp;amp; brown saddle</p>
+                                            <p>Weight: 10.8kg (530mm)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="vc_col-sm-6 wpb_column vc_column_container custom_1438662057640" style="position: relative; background-color: #ffffff; background-image: url(Assets/client/img/uploads/2015/07/detail-1.jpg); background-size: cover; background-repeat: no-repeat; background-position:left bottom;">
+                                <div class="wpb_wrapper">
+                                    <div class="wpb_text_column wpb_content_element ">
+                                        <div class="wpb_wrapper"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vc_row wpb_row vc_row-fluid custom_1438067748540" style="position: relative;">
+                            <div class="vc_col-sm-6 wpb_column vc_column_container custom_1438662103817" style="position: relative; background-color: #ffffff; background-image: url(Assets/client/img/uploads/2015/07/detail-2.jpg); background-size: cover; background-repeat: no-repeat; background-position:right bottom;">
+                                <div class="wpb_wrapper">
+                                    <div class="wpb_text_column wpb_content_element ">
+                                        <div class="wpb_wrapper"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="6hrcj0Da7p" class="vc_col-sm-6 wpb_column vc_column_container custom_1438067825929" style="position: relative;">
+                                <div class="wpb_wrapper">
+                                    <div class="k2t-heading align-left no-border no-subtitle underline h2 three_dotted">
+                                        <div class="k2t-heading-inner">
+                                            <div class="text">
+                                                <h2 class="h"><span>Text Detail 2</span></h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="wpb_text_column wpb_content_element ">
+                                        <div class="wpb_wrapper">
+                                            <p>Frame: full Cr-Mo steel (470/530/570/610mm)</p>
+                                            <p>Colours: moss green, blue grey and mustard</p>
+                                            <p>*fitted as standard with ivory tyres</p>
+                                            <p>Gears: SHIMANO ACERA 8 speed with Rapidfire shift lever</p>
+                                            <p>Wheels &amp;amp; Tyres: silver rims and ivory side wall tyres* (650×25c) *some colours fitted with all ivory tyres</p>
+                                            <p>Details: Traditional handlebars with brown grips &amp;amp; brown saddle</p>
+                                            <p>Weight: 10.8kg (530mm)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vc_row wpb_row vc_row-fluid product-detail detail-2 custom_1438069950459" style="position: relative;background-color:#f3f3f3;">
+                            <div class="container">
+                                <div id="bPnUEk9i0B" class="vc_col-sm-6 wpb_column vc_column_container custom_1441968377962" style="position: relative;">
+                                    <div class="review_form">
+                                        <div id="respond" class="comment-respond">
+                                            <h3 id="reply-title" class="comment-reply-title">
+                                                Add a review
+                                                <small>
+                                                    <a rel="nofollow" id="cancel-comment-reply-link" href="#" style="display:none;">Cancel reply</a>
+                                                </small>
+                                            </h3>
+                                            <form id="commentform" class="comment-form" novalidate="">
+                                                <div class="wp-social-login-widget" style="margin-bottom: 20px;">
+                                                    <div class="wp-social-login-connect-with">Connect with:</div>
+                                                    <div class="wp-social-login-provider-list">
+
+                                                        <a rel="nofollow" href="#" title="Connect with Facebook" class="wp-social-login-provider wp-social-login-provider-facebook" data-provider="Facebook">
+                                                            <img alt="Facebook" title="Connect with Facebook" src="~/Assets/client/img/facebook.png">
+                                                        </a>
+
+                                                        <a rel="nofollow" href="#" title="Connect with Google" class="wp-social-login-provider wp-social-login-provider-google" data-provider="Google">
+                                                            <img alt="Google" title="Connect with Google" src="~/Assets/client/img/google.png">
+                                                        </a>
+
+                                                        <a rel="nofollow" href="#" title="Connect with Twitter" class="wp-social-login-provider wp-social-login-provider-twitter" data-provider="Twitter">
+                                                            <img alt="Twitter" title="Connect with Twitter" src="~/Assets/client/img/twitter.png">
+                                                        </a>
+                                                    </div>
+                                                    <div class="wp-social-login-widget-clearing"></div>
+                                                </div>
+                                                <p class="comment-form-author">
+                                                    <input id="author" name="author" type="text" value="" size="30" aria-required="true" placeholder="Name *">
+                                                </p>
+                                                <p class="comment-form-email">
+                                                    <input id="email" name="email" type="text" value="" size="30" aria-required="true" placeholder="Email *">
+                                                </p>
+                                                <div class="comment-form-rating" style="position: relative; float: left; top: -120px;left: -80px;">
+                                                    <p class="stars">
+                                                        <span>
+                                                            <a class="star-1" href="#"></a>
+                                                            <a class="star-2" href="#"></a>
+                                                            <a class="star-3" href="#"></a>
+                                                            <a class="star-4" href="#"></a>
+                                                            <a class="star-5" href="#"></a>
+                                                        </span>
+                                                    </p>
+                                                    <select name="rating" id="rating" style="display: none;">
+                                                        <option value="">Rate…</option>
+                                                        <option value="5">Perfect</option>
+                                                        <option value="4">Good</option>
+                                                        <option value="3">Average</option>
+                                                        <option value="2">Not that bad</option>
+                                                        <option value="1">Very Poor</option>
+                                                    </select>
+                                                </div>
+                                                <p class="comment-form-comment">
+                                                    <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" placeholder="Your Review"></textarea>
+                                                </p>
+                                                <p class="form-submit">
+                                                    <input name="submit" type="submit" id="submit" class="submit" value="Submit">
+                                                    <input type="hidden" name="comment_post_ID" value="1847" id="comment_post_ID">
+                                                    <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+                                                </p>
+                                                <input type="hidden" name="icl_comment_language" value="en">
+                                            </form>
+                                        </div><!-- #respond -->
+                                    </div>
+
+                                </div>
+                                <div class="vc_col-sm-6 wpb_column vc_column_container custom_1441968292573" style="position: relative;">
+                                    <div class="wpb_wrapper">
+                                        <div class="woocommerce-tabs wc-tabs-wrapper">
+                                            <ul class="tabs wc-tabs">
+                                                <li class="reviews_tab first"><a href="#tab-reviews">Reviews (3)</a></li>
+                                                <li class="description_tab"><a href="#tab-description">Description</a></li>
+                                                <li class="additional_information_tab"><a href="#tab-additional_information">Additional Information</a></li>
+                                            </ul>
+                                            <div class="panel entry-content wc-tab" id="tab-reviews">
+                                                <div id="reviews">
+                                                    <div id="comments">
+                                                        <h2>3 reviews for Pink Biframes</h2>
+                                                        <ol class="commentlist">
+                                                            <li class="comment byuser comment-author-linda-jackson even thread-even depth-1" id="li-comment-111">
+                                                                <div id="comment-111" class="comment-body">
+                                                                    <div class="comment-thumb">
+                                                                        <img alt='aprilng186@gmail.com' src='Assets/client/img/uploads/2015/avatar/3adbcc1506e73ef5e8e4dddff00f1ab9.jpeg' class='avatar avatar-80 photo' />
+                                                                    </div>
+                                                                    <div class="comment-content comment">
+                                                                        <div class="comment-meta">
+                                                                            <p class="comment-author"><span>Linda</span></p>
+                                                                            <p class="stars">
+                                                                                <span>
+                                                                                    <a class="star-5" href="#"></a>
+                                                                                </span>
+                                                                            </p>
+                                                                            <div class="description">
+                                                                                <p>The finish is sweet and classy. With shine where it needs it and lines that speak to you, even if others don’t notice, you will. Will definitely purchase one.</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li><!-- #comment-## -->
+                                                            <li class="comment byuser comment-author-russel-tunner odd alt thread-odd thread-alt depth-1" id="li-comment-178">
+                                                                <div id="comment-178" class="comment-body">
+                                                                    <div class="comment-thumb">
+                                                                        <img alt='giangnh@byjoomla.com' src='Assets/client/img/uploads/2015/avatar/8014e2f066b03b5299978a037effa411.jpeg' class='avatar avatar-80 photo' />
+                                                                    </div>
+                                                                    <div class="comment-content comment">
+                                                                        <div class="comment-meta">
+                                                                            <p class="comment-author"><span>Russel</span></p>
+                                                                            <div class="description">
+                                                                                <p>After riding the bicycles nearly daily since our test ride, I thought it was important to point out that I still feel the same way about this bike. I love it!</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li><!-- #comment-## -->
+                                                            <li class="comment byuser comment-author-kimberly-jensen even thread-even depth-1" id="li-comment-195">
+                                                                <div id="comment-195" class="comment-body">
+                                                                    <div class="comment-thumb">
+                                                                        <img alt='nhungpt@byjoomla.com' src='Assets/client/img/uploads/2015/avatar/81077a8c58413594444acb3e1486a8d2.jpeg' class='avatar avatar-80 photo' height='80' width='80' />
+                                                                    </div>
+                                                                    <div class="comment-content comment">
+                                                                        <div class="comment-meta">
+                                                                            <p class="comment-author"><span>Kimberly</span></p>
+                                                                            <div class="description">
+                                                                                <p>It is a fun ride at a good price that fills an important niche: a modern, good-looking, reasonably-priced 3-speed roadster designed specifically for a bike enthusiast.</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li><!-- #comment-## -->
+                                                        </ol>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </div>
+                                            <div class="panel entry-content wc-tab" id="tab-description">
+                                                <h2>Product Description</h2>
+                                                <p>The BF is not just any cheap fixie bike. Built with strong high tensile steel and quality componentry, the BF delivers exceptional quality and value. Whether you&#8217;re an experienced fixed gear bike racer or a novice rider looking for a simple fixie single speed commuter bike, the BF fixie is a quality bicycle that all can enjoy.</p>
+                                            </div>
+                                            <div class="panel entry-content wc-tab" id="tab-additional_information">
+                                                <h2>Additional Information</h2>
+                                                <table class="shop_attributes">
+                                                    <tr class="">
+                                                        <th>Size</th>
+                                                        <td><p>L, M, S, Xl</p></td>
+                                                    </tr>
+                                                    <tr class="alt">
+                                                        <th>Color</th>
+                                                        <td><p>Blue, Green, Red, White</p></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="vc_row wpb_row vc_row-fluid custom_1438068993557" style="position: relative;background-color:#363636;">
+                                <div class="vc_col-sm-12 wpb_column vc_column_container" style="position: relative;">
+                                    <div class="wpb_wrapper">
+                                        <div class="k2t-iconbox layout-2" style="">
+                                            <div class="iconbox-icon " style="color: #ffffff">
+                                                <i style="font-size: 60px;" class="awesome-bicycle"></i>
+                                            </div>
+                                            <div class="iconbox-text ">
+                                                <div class="title">
+                                                    <h3 style="color: #ffffff;text-transform: lowercase;" class="h">20% discount if you buy today</h3>
+                                                </div>
+                                                <div class="desc"></div>
+                                            </div>
+                                        </div>
+                                        <div class="k2t-button align-center grey-button">
+                                            <a class="k2t-btn btn-no-content btn-medium button-icon-right" href="#" target="_self">
+                                                <span class="button-text" style=""><span class="text">Add to cart</span></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             @{
-                                var moreImages = (List<string>)ViewBag.MoreImages;
-                                if (moreImages.Count > 0)
-                                {
-                                    foreach (var image in moreImages)
-                                    {
-                                        <li>
-                                            <img class="etalage_thumb_image" src="@image" class="img-responsive" />
-                                            <img class="etalage_source_image" src="@image" class="img-responsive" title="" />
-                                        </li>
-                                    }
-                                }
+                                var relatedProducts = (IEnumerable<TeduShop.Web.Models.ProductViewModel>)ViewBag.RelatedProducts;
                             }
-                        </ul>
-                    </div>
-                </div>
-                <div class="details-left-info">
-                    <h3>@Model.Name</h3>
-                    <h4>Model No: 3498</h4>
-                    <h4></h4>
-                    <p><label>$</label> @Model.Price<a href="#">Click for offer</a></p>
-                    <p class="size">SIZE ::</p>
-                    <a class="length" href="#">XS</a>
-                    <a class="length" href="#">M</a>
-                    <a class="length" href="#">S</a>
-                    <div class="btn_form">
-                        <a href="cart.html">buy now</a>
-                        <a href="#" data-id="@Model.ID" class="btnAddToCart">ADD TO CART</a>
-                    </div>
-                    <div class="bike-type">
-                        <p>
-                            Tag ::
-                            @foreach (var tag in (IEnumerable<TeduShop.Web.Models.TagViewModel>)ViewBag.Tags)
-                            {
-                                <a href="/tag/@(tag.ID).html/">@(tag.Name) </a>
-                            }
-                        </p>
-                        <p>Products in stock ::<a href="#">@Model.Quantity  </a></p>
-                    </div>
-                    <h5>Description  ::</h5>
-                    <p class="desc">
-                        @Model.Description
-                    </p>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
-    @{
-        var relatedProducts = (IEnumerable<TeduShop.Web.Models.ProductViewModel>)ViewBag.RelatedProducts;
-    }
-    <div class="single-bottom2">
-        <h6>Related Products</h6>
-        @foreach (var product in relatedProducts)
-        {
-            <div class="product">
-                <div class="product-desc">
-                    <div class="product-img product-img2">
-                        <img src="@product.Image" class="img-responsive " alt="@product.Name" />
-                    </div>
-                    <div class="prod1-desc">
-                        <h5><a class="product_link" href="bicycles.html">@product.Name</a></h5>
-                        <p class="product_descr"> @product.Description </p>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="product_price">
-                    <span class="price-access">$ @product.Price</span>
-                    <a class="button1 btnAddToCart" href="#" data-id="@Model.ID"><span>Add to cart</span></a>
-                </div>
-            </div>
+                            <div class="vc_row wpb_row vc_row-fluid product-detail detail-1 " style="position: relative;">
+                                <div class="container">
+                                    <div class="vc_col-sm-12 wpb_column vc_column_container custom_1436951048605" style="position: relative;">
+                                        <div class="wpb_wrapper">
+                                            <div class="product-related columns-4">
+                                                <div class="products">
+                                                    <div class="text-heading">
+                                                        <h2>Related Product</h2>
+                                                    </div>
+                                                    <div class="owl-carousel relate-item">
+                                                        @foreach (var product in relatedProducts)
+                                                        {
+                                                            var url = "/" + product.Alias + ".p-" + product.ID + ".html";
+                                                            <div class="isotope-selector first post-1336 product type-product status-publish has-post-thumbnail product_brand-sunrise-bikes product_brand-velo-bikes product_cat-classic product_tag-blue product_tag-classic product_tag-sport product_shipping_class-aland-islands sale shipping-taxable purchasable product-type-variable product-cat-classic product-tag-blue product-tag-classic product-tag-sport instock">
 
-        }
-    </div>
+                                                                <article class="product-item">
+                                                                    <div class="product-thumb">
+                                                                        <a href="@url" rel="nofollow" data-product_id="1336" data-product_sku="CS3" data-quantity="1" class="button add_to_cart_button product_type_variable">View</a>
+                                                                        <div>
+                                                                            @if (product.PromotionPrice.HasValue && product.Quantity != 0)
+                                                                            {<span class="onsale">Sale!</span>}
+                                                                            <img width="570" height="444" src="@product.Image" class="attachment-shop_catalog wp-post-image" alt="@product.Name" />
+                                                                            <div class="product-name">
+                                                                                @if (product.Quantity == 0)
+                                                                                {<span class="onsale soldout">Sold</span>}
+                                                                                <div class="star-rating" title="Rated 5.00 out of 5">
+                                                                                    <p class="stars">
+                                                                                        <a class="star-5" href="#" style="margin: -40px 0px 0px 15px;"></a>
+                                                                                    </p>
+                                                                                </div>
+                                                                                <h3>@product.Name</h3>
+                                                                                <span class="price">
+                                                                                    @if (product.PromotionPrice.HasValue)
+                                                                                    {<ins><span class="amount">$ @product.PromotionPrice.Value.ToString("N0")</span></ins>
+                                                                                    <del><span class="amount">$ @product.Price.ToString("N0")</span></del>}
+                                                                                else
+                                                                                { <ins><span class="amount">$ @product.Price.ToString("N0")</span></ins>}
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </article>
+                                                            </div>
+                                                        }
+                                                           
+                                                         
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- #product-1847 -->
+                </div><!-- #main -->
+            </section><!-- .container -->
+        </div><!-- .k2t-content -->
+    </div><!-- .k2t-body -->
 </div>
-    </div>
-<script src="" ~/Assets/client/js/jquery.easydropdown.js"></script>
-<link href="" ~/Assets/client/css/nav.css" rel="stylesheet" type="text/css" media="all" />

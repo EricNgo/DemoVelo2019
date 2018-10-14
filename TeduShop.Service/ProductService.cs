@@ -167,6 +167,9 @@ namespace TeduShop.Service
                 case "price":
                     query = query.OrderBy(x => x.Price);
                     break;
+                case "hot":
+                    query = query.OrderBy(x =>x.HotFlag);
+                    break;
                 default:
                     query = query.OrderByDescending(x => x.CreatedDate);
                     break;

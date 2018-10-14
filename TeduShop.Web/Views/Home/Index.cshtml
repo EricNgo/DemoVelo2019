@@ -146,10 +146,13 @@
                                                                                     </div>
                                                                                     <h3 style="font-size: 30px;">@product.Name</h3>
                                                                                     <span class="price">
-                                                                                        <ins style="font-size: 25px;"><span class="amount">$ @product.Price.ToString("N0")</span></ins>
                                                                                         @if (product.PromotionPrice.HasValue)
-                                                                                        { <del style="font-size: 25px;"><span class="amount">$ @product.PromotionPrice.Value.ToString("N0")</span></del>}
-
+                                                                                        {
+                                                                                          <ins style="font-size: 25px;"><span class="amount">$ @product.PromotionPrice.Value.ToString("N0")</span></ins>
+                                                                                        <del style="font-size: 25px;"><span class="amount">$ @product.Price.ToString("N0")</span></del>}
+                                                                                    else
+                                                                                    { <ins style="font-size: 25px;"><span class="amount">$ @product.Price.ToString("N0")</span></ins>}
+                                                                                        
                                                                                     </span>
                                                                                         </div>
                                                                                     </div>
@@ -252,285 +255,43 @@
                                                             <div class="article-loop k2t-isotope-container loaded" style="position: relative; height: 1041px;">
                                                                 <div class="gutter-sizer"></div>
                                                                 <div class="products">
-                                                                    <div class="isotope-selector first post-1890 product type-product status-publish has-post-thumbnail product_brand-bmx-bikes product_cat-classic product_tag-classic product_tag-sport product_tag-white product_shipping_class-aland-islands sale shipping-taxable purchasable product-type-variable product-cat-classic product-tag-classic product-tag-sport product-tag-white outofstock" style="position: absolute; left: 0px; top: 0px;">
-                                                                        <article class="product-item">
-                                                                            <div class="product-thumb">
-                                                                                <a href="#" rel="nofollow" data-product_id="1890" data-product_sku="CS5" data-quantity="1" class="button  product_type_variable">
-                                                                                    Select options
-                                                                                </a>
-                                                                                <div>
-                                                                                    <img width="570" height="444" src="~/Assets/client/img/uploads/2015/07/p6.jpg" class="attachment-shop_catalog wp-post-image" alt="p6">
-                                                                                    <div class="product-name">
-                                                                                        <span class="onsale soldout">Sold</span>
-                                                                                        <div class="star-rating" title="Rated 5.00 out of 5">
-                                                                                            <p class="stars">
-                                                                                                <a class="star-5" href="#" style="margin: -40px 0px 0px 15px;"></a>
-                                                                                            </p>
+                                                                    @foreach (var product in Model.LastestProducts)
+                                                                    {
+                                                                        var url = "/" + product.Alias + ".p-" + product.ID + ".html";
+                                                                        <div class="isotope-selector last post-384 product type-product status-publish has-post-thumbnail product_brand-sunrise-bikes product_cat-dare-balance product_tag-dare-balance product_tag-silver sale featured shipping-taxable purchasable product-type-simple product-cat-dare-balance product-tag-dare-balance product-tag-silver instock" style="position: absolute; left: 877px; top: 694px;">
+
+                                                                            <article class="product-item">
+                                                                                <div class="product-thumb">
+                                                                                    <a href="@url" rel="nofollow" class="button add_to_cart_button product_type_simple">Add to cart</a>
+                                                                                    <div>
+                                                                                        @if (product.PromotionPrice.HasValue && product.Quantity != 0)
+                                                                                        {
+                                                                                            <span class="onsale">Sale!</span>
+                                                                                        }
+                                                                                        <img width="570" height="444" src="@product.Image" class="attachment-shop_catalog wp-post-image" alt="@product.Name">
+                                                                                        <div class="product-name">
+                                                                                            @if (product.Quantity == 0)
+                                                                                            {<span class="onsale soldout">Sold</span>}
+
+                                                                                            <h3>@product.Name</h3>
+
+                                                                                            <span class="price">
+                                                                                                @if (product.PromotionPrice.HasValue)
+                                                                                                {
+                                                                                                    <ins><span class="amount">$ @product.PromotionPrice.Value.ToString("N0")</span></ins>
+                                                                                                    <del><span class="amount">$ @product.Price.ToString("N0")</span></del>}
+                                                                                                else
+                                                                                                {<ins><span class="amount">$ @product.Price.ToString("N0")</span></ins>}
+
+                                                                                            </span>
+
                                                                                         </div>
-                                                                                        <h3>White CS</h3>
-                                                                                        <span class="price">
-                                                                                            <del><span class="amount">$800</span></del>
-                                                                                            <ins><span class="amount">$560</span></ins>
-                                                                                        </span>
                                                                                     </div>
                                                                                 </div>
-                                                                            </div>
-                                                                        </article>
-                                                                    </div>
-
-                                                                    <div class="isotope-selector post-1860 product type-product status-publish has-post-thumbnail product_brand-bmx-bikes product_cat-dare-balance product_tag-dare-balance product_tag-purple sale featured shipping-taxable purchasable product-type-variable product-cat-dare-balance product-tag-dare-balance product-tag-purple instock" style="position: absolute; left: 292px; top: 0px;">
-
-                                                                        <article class="product-item">
-                                                                            <div class="product-thumb">
-                                                                                <a href="#" rel="nofollow" data-product_id="1860" data-product_sku="DB1" data-quantity="1" class="button add_to_cart_button product_type_variable">Select options</a>
-                                                                                <div>
-                                                                                    <span class="onsale">Sale!</span>
-                                                                                    <img width="570" height="444" src="~/Assets/client/img/uploads/2015/07/p8.jpg" class="attachment-shop_catalog wp-post-image" alt="p8">
-                                                                                    <div class="product-name">
-                                                                                        <div class="star-rating" title="Rated 5.00 out of 5">
-                                                                                            <p class="stars">
-                                                                                                <a class="star-5" href="#" style="margin: -40px 0px 0px 15px;"></a>
-                                                                                            </p>
-                                                                                        </div>
-                                                                                        <h3>Purple DB</h3>
-                                                                                        <span class="price">
-                                                                                            <del><span class="amount">$925</span></del>
-                                                                                            <ins><span class="amount">$650</span></ins>
-                                                                                        </span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </article>
-                                                                    </div>
-
-                                                                    <div class="isotope-selector post-1856 product type-product status-publish has-post-thumbnail product_brand-bmx-bikes product_cat-classic product_tag-classic product_tag-sport product_tag-yellow product_shipping_class-aland-islands sale shipping-taxable purchasable product-type-variable product-cat-classic product-tag-classic product-tag-sport product-tag-yellow instock" style="position: absolute; left: 585px; top: 0px;">
-
-                                                                        <article class="product-item">
-                                                                            <div class="product-thumb">
-                                                                                <a href="#" rel="nofollow" data-product_id="1856" data-product_sku="CS1" data-quantity="1" class="button add_to_cart_button product_type_variable">Select options</a>
-                                                                                <div>
-                                                                                    <span class="onsale">Sale!</span>
-                                                                                    <img width="570" height="444" src="~/Assets/client/img/uploads/2015/07/p4.jpg" class="attachment-shop_catalog wp-post-image" alt="p4">
-                                                                                    <div class="product-name">
-                                                                                        <div class="star-rating" title="Rated 5.00 out of 5">
-                                                                                            <p class="stars">
-                                                                                                <a class="star-5" href="#" style="margin: -40px 0px 0px 15px;"></a>
-                                                                                            </p>
-                                                                                        </div>
-                                                                                        <h3>Yellow CS</h3>
-                                                                                        <span class="price">
-                                                                                            <del><span class="amount">$800</span></del>
-                                                                                            <ins><span class="amount">$560</span></ins>
-                                                                                        </span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </article>
-                                                                    </div>
-
-                                                                    <div class="isotope-selector last post-1853 product type-product status-publish has-post-thumbnail product_brand-cyclocross product_brand-sunrise-bikes product_cat-classic product_tag-brown product_tag-classic product_tag-sport product_shipping_class-aland-islands sale shipping-taxable purchasable product-type-variable product-cat-classic product-tag-brown product-tag-classic product-tag-sport instock" style="position: absolute; left: 877px; top: 0px;">
-
-                                                                        <article class="product-item">
-                                                                            <div class="product-thumb">
-                                                                                <a href="#" rel="nofollow" data-product_id="1853" data-product_sku="CS2" data-quantity="1" class="button add_to_cart_button product_type_variable">Select options</a>
-                                                                                <div>
-                                                                                    <span class="onsale">Sale!</span>
-                                                                                    <img width="570" height="444" src="~/Assets/client/img/uploads/2015/07/p2.jpg" class="attachment-shop_catalog wp-post-image" alt="p2">
-                                                                                    <div class="product-name">
-                                                                                        <div class="star-rating" title="Rated 5.00 out of 5">
-                                                                                            <p class="stars">
-                                                                                                <a class="star-5" href="#" style="margin: -40px 0px 0px 15px;"></a>
-                                                                                            </p>
-                                                                                        </div>
-                                                                                        <h3>Brown CS</h3>
-                                                                                        <span class="price">
-                                                                                            <del><span class="amount">$800</span></del>
-                                                                                            <ins><span class="amount">$560</span></ins>
-                                                                                        </span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </article>
-                                                                    </div>
-
-                                                                    <div class="isotope-selector first post-1848 product type-product status-publish has-post-thumbnail product_brand-cyclocross product_brand-velo-bikes product_cat-sport product_tag-sport product_tag-white shipping-taxable purchasable product-type-simple product-cat-sport product-tag-sport product-tag-white outofstock" style="position: absolute; left: 0px; top: 347px;">
-
-                                                                        <article class="product-item">
-                                                                            <div class="product-thumb">
-                                                                                <a href="#" rel="nofollow" data-product_id="1848" data-product_sku="SP1" data-quantity="1" class="button add_to_cart_button product_type_simple">Add to cart</a>
-                                                                                <div>
-                                                                                    <img width="570" height="444" src="~/Assets/client/img/uploads/2015/05/p20.jpg" class="attachment-shop_catalog wp-post-image" alt="p20">
-                                                                                    <div class="product-name">
-                                                                                        <div class="star-rating" title="Rated 5.00 out of 5">
-                                                                                            <p class="stars">
-                                                                                                <a class="star-5" href="#" style="margin: -40px 0px 0px 15px;"></a>
-                                                                                            </p>
-                                                                                        </div>
-                                                                                        <h3>White Sport</h3>
-                                                                                        <span class="price"><span class="amount">$850</span></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </article>
-                                                                    </div>
-
-                                                                    <div class="isotope-selector post-1847 product type-product status-publish has-post-thumbnail product_brand-bmx-bikes product_brand-cyclocross product_cat-sport product_tag-mustard product_tag-sport shipping-taxable purchasable product-type-simple product-cat-sport product-tag-mustard product-tag-sport outofstock" style="position: absolute; left: 292px; top: 347px;">
-
-                                                                        <article class="product-item">
-                                                                            <div class="product-thumb">
-                                                                                <a href="#" rel="nofollow" data-product_id="1847" data-product_sku="SP2" data-quantity="1" class="button add_to_cart_button product_type_simple">Add to cart</a>
-                                                                                <div>
-                                                                                    <img width="570" height="444" src="~/Assets/client/img/uploads/2015/05/p19.jpg" class="attachment-shop_catalog wp-post-image" alt="p19">
-                                                                                    <div class="product-name">
-                                                                                        <div class="star-rating" title="Rated 5.00 out of 5">
-                                                                                            <p class="stars">
-                                                                                                <a class="star-5" href="#" style="margin: -40px 0px 0px 15px;"></a>
-                                                                                            </p>
-                                                                                        </div>
-                                                                                        <h3>Mustard Sport</h3>
-                                                                                        <span class="price"><span class="amount">$850</span></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </article>
-                                                                    </div>
-
-                                                                    <div class="isotope-selector post-1336 product type-product status-publish has-post-thumbnail product_brand-sunrise-bikes product_brand-velo-bikes product_cat-classic product_tag-blue product_tag-classic product_tag-sport product_shipping_class-aland-islands sale shipping-taxable purchasable product-type-variable product-cat-classic product-tag-blue product-tag-classic product-tag-sport instock" style="position: absolute; left: 585px; top: 347px;">
-
-                                                                        <article class="product-item">
-                                                                            <div class="product-thumb">
-                                                                                <a href="#" rel="nofollow" data-product_id="1336" data-product_sku="CS3" data-quantity="1" class="button add_to_cart_button product_type_variable">Select options</a>
-                                                                                <div>
-                                                                                    <span class="onsale">Sale!</span>
-                                                                                    <img width="570" height="444" src="~/Assets/client/img/uploads/2015/06/p1.jpg" class="attachment-shop_catalog wp-post-image" alt="p1">
-                                                                                    <div class="product-name">
-                                                                                        <div class="star-rating" title="Rated 5.00 out of 5">
-                                                                                            <p class="stars">
-                                                                                                <a class="star-5" href="#" style="margin: -40px 0px 0px 15px;"></a>
-                                                                                            </p>
-                                                                                        </div>
-                                                                                        <h3>Blue CS</h3>
-                                                                                        <span class="price">
-                                                                                            <del><span class="amount">$800</span></del>
-                                                                                            <ins><span class="amount">$560</span></ins>
-                                                                                        </span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </article>
-                                                                    </div>
-
-
-                                                                    <div class="isotope-selector last post-1838 product type-product status-publish has-post-thumbnail product_brand-bmx-bikes product_brand-velo-bikes product_cat-biframes product_tag-biframes product_tag-pink product_tag-sport shipping-taxable purchasable product-type-simple product-cat-biframes product-tag-biframes product-tag-pink product-tag-sport outofstock" style="position: absolute; left: 877px; top: 347px;">
-
-                                                                        <article class="product-item">
-                                                                            <div class="product-thumb">
-                                                                                <a href="/velo/?add-to-cart=1838" rel="nofollow" data-product_id="1838" data-product_sku="BF1" data-quantity="1" class="button add_to_cart_button product_type_simple">Add to cart</a>
-                                                                                <div>
-                                                                                    <img width="570" height="444" src="~/Assets/client/img/uploads/2015/07/p15.jpg" class="attachment-shop_catalog wp-post-image" alt="p15">
-                                                                                    <div class="product-name">
-                                                                                        <div class="star-rating" title="Rated 5.00 out of 5">
-                                                                                            <p class="stars">
-                                                                                                <span>
-                                                                                                    <a class="star-5" href="#" style="margin: -40px 0px 0px 15px;"></a>
-                                                                                                </span>
-                                                                                            </p>
-                                                                                        </div>
-                                                                                        <h3>Pink Biframes</h3>
-                                                                                        <span class="price"><span class="amount">$625</span></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </article>
-                                                                    </div>
-
-                                                                    <div class="isotope-selector first post-1840 product type-product status-publish has-post-thumbnail product_cat-biframes product_tag-biframes product_tag-blue product_tag-sport shipping-taxable purchasable product-type-simple product-cat-biframes product-tag-biframes product-tag-blue product-tag-sport outofstock" style="position: absolute; left: 0px; top: 694px;">
-
-                                                                        <article class="product-item">
-                                                                            <div class="product-thumb">
-                                                                                <a href="/velo/?add-to-cart=1840" rel="nofollow" data-product_id="1840" data-product_sku="BF2" data-quantity="1" class="button add_to_cart_button product_type_simple">Add to cart</a>
-                                                                                <div>
-                                                                                    <img width="570" height="444" src="~/Assets/client/img/uploads/2015/07/p16.jpg" class="attachment-shop_catalog wp-post-image" alt="p16">
-                                                                                    <div class="product-name">
-                                                                                        <div class="star-rating" title="Rated 5.00 out of 5">
-                                                                                            <p class="stars">
-                                                                                                <a class="star-5" href="#" style="margin: -40px 0px 0px 15px;"></a>
-                                                                                            </p>
-                                                                                        </div>
-                                                                                        <h3>Blue Biframes</h3>
-                                                                                        <span class="price"><span class="amount">$625</span></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </article>
-                                                                    </div>
-
-                                                                    <div class="isotope-selector post-381 product type-product status-publish has-post-thumbnail product_brand-velo-bikes product_cat-classic product_tag-classic product_tag-red product_tag-sport featured shipping-taxable purchasable product-type-simple product-cat-classic product-tag-classic product-tag-red product-tag-sport instock" style="position: absolute; left: 292px; top: 694px;">
-
-                                                                        <article class="product-item">
-                                                                            <div class="product-thumb">
-                                                                                <a href="#" rel="nofollow" data-product_id="381" data-product_sku="CS4" data-quantity="1" class="button add_to_cart_button product_type_simple">Add to cart</a>
-                                                                                <div>
-                                                                                    <img width="570" height="444" src="~/Assets/client/img/uploads/2015/05/p3.jpg" class="attachment-shop_catalog wp-post-image" alt="p3">
-                                                                                    <div class="product-name">
-                                                                                        <div class="star-rating" title="Rated 5.00 out of 5">
-                                                                                            <p class="stars">
-                                                                                                <a class="star-5" href="#" style="margin: -40px 0px 0px 15px;"></a>
-                                                                                            </p>
-                                                                                        </div>
-                                                                                        <h3>Red CS</h3>
-                                                                                        <span class="price"><span class="amount">$800</span></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </article>
-                                                                    </div>
-
-                                                                    <div class="isotope-selector post-383 product type-product status-publish has-post-thumbnail product_brand-cyclocross product_cat-dare-balance product_tag-dare-balance product_tag-yellow sale featured shipping-taxable purchasable product-type-variable product-cat-dare-balance product-tag-dare-balance product-tag-yellow instock" style="position: absolute; left: 585px; top: 694px;">
-
-                                                                        <article class="product-item">
-                                                                            <div class="product-thumb">
-                                                                                <a href="#" rel="nofollow" data-product_id="383" data-product_sku="DB2" data-quantity="1" class="button add_to_cart_button product_type_variable">Select options</a>
-                                                                                <div>
-                                                                                    <span class="onsale">Sale!</span>
-                                                                                    <img width="570" height="444" src="~/Assets/client/img/uploads/2015/05/p7.jpg" class="attachment-shop_catalog wp-post-image" alt="p7">
-                                                                                    <div class="product-name">
-                                                                                        <div class="star-rating" title="Rated 5.00 out of 5">
-                                                                                            <p class="stars">
-                                                                                                <a class="star-5" href="#" style="margin: -40px 0px 0px 15px;"></a>
-                                                                                            </p>
-                                                                                        </div>
-                                                                                        <h3>Yellow DB</h3>
-                                                                                        <span class="price">
-                                                                                            <del><span class="amount">$925</span></del>
-                                                                                            <ins><span class="amount">$650</span></ins>
-                                                                                        </span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </article>
-                                                                    </div>
-
-                                                                    <div class="isotope-selector last post-384 product type-product status-publish has-post-thumbnail product_brand-sunrise-bikes product_cat-dare-balance product_tag-dare-balance product_tag-silver sale featured shipping-taxable purchasable product-type-simple product-cat-dare-balance product-tag-dare-balance product-tag-silver instock" style="position: absolute; left: 877px; top: 694px;">
-
-                                                                        <article class="product-item">
-                                                                            <div class="product-thumb">
-                                                                                <a href="#" rel="nofollow" data-product_id="384" data-product_sku="DB3" data-quantity="1" class="button add_to_cart_button product_type_simple">Add to cart</a>
-                                                                                <div>
-                                                                                    <span class="onsale">Sale!</span>
-                                                                                    <img width="570" height="444" src="~/Assets/client/img/uploads/2015/05/p9.jpg" class="attachment-shop_catalog wp-post-image" alt="p9">
-                                                                                    <div class="product-name">
-                                                                                        <h3>Silver DB</h3>
-                                                                                        <span class="price">
-                                                                                            <del><span class="amount">$925</span></del>
-                                                                                            <ins><span class="amount">$650</span></ins>
-                                                                                        </span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </article>
-                                                                    </div>
-                                                                </div>
+                                                                            </article>
+                                                                        </div>
+                                                                    }
+                                                                 </div>
                                                             </div><!-- .article-loop -->
                                                         </div><!-- .k2t-isotope-wrapper -->
                                                     </div><!-- .product-velo -->

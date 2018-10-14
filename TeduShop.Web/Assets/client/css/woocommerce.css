@@ -1411,6 +1411,7 @@ select.orderby {
 .woocommerce div.product .price > .amount {
 	color: #bdb099;
 	font-weight: 400;
+    display:block;
 	font-family: "Montserrat";
 }
 .woocommerce div.product .stock {

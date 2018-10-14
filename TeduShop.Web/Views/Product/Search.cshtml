@@ -7,109 +7,213 @@
     ViewBag.MetaDescription = "Kết quả tìm kiếm cho từ khóa " + keyword;
 
 
-    Layout = "~/Views/Shared/StoreLayouts.cshtml";
+    Layout = "~/Views/Shared/_Layouts.cshtml";
 
 }
-<div class="parts">
-<div class="bike-parts">
-    @if (Model.Count > 0)
-    {
-        //var startPageIndex1 = Math.Max(1, Model.Page - Model.MaxPage / 2);
-        //var endPageIndex1 = Math.Min(Model.TotalPages, Model.Page + Model.MaxPage / 2);
-        <div class="top">
-
-            <ul>
-                <a href="#">Kết quả từ khóa tìm được: @keyword - <span>@Model.TotalCount sản phẩm</span> </a>
-                @*<br />
-                <li>Sort : </li>
-                @for (int i = startPageIndex1; i <= endPageIndex1; i++)
-                {
-                    <li><a href="?page=@Model.Page&sort=popular&page=@i&Keyword=@keyword">Popular |</a></li>
-                    <li><a href="?page=@Model.Page&sort=new&Keyword=@keyword">New |</a></li>
-                    <li><a href="?page=@Model.Page&sort=discount&Keyword=@keyword">Discount |</a></li>
-                    <li><a href="?page=@Model.Page&sort=price&Keyword=@keyword">Low Price</a></li>
-                }
-
-                <br />*@
-            </ul>
-        </div>
-        <div class="bike-apparels">
-            <div class="parts1">
-                @foreach (var product in Model.Items)
-                {
-                    var url = "/" + product.Alias + ".p-" + product.ID + ".html";
-                    <a href="@url">
-                        <div class="part-sec">
-                            <div><img src="@product.Image" alt="@product.Name" /></div>
-                            <div class="bike-cost">
-                                <h5>@product.Price.ToString("N0") $</h5>
-                                <h5><span>Model :<Strong> @product.Name</Strong></span></h5>
-                                <div class="bike-cart">
-                                    <a class="add-cart  grow-rotate" href="@url">Quick View</a>
-                                    <a class="buy float-shadow" href="@url">BUY NOW</a>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                    </a>
-                }
+<div class="single single-product woocommerce woocommerce-page offcanvas-type-default  offcanvas-left">
+    <div class="k2t-body">
+        @if (Model.Count > 0)
+        {
+            <div class="k2t-title-bar underline justify  shadow" style="padding-top:100px;padding-bottom:100px;background-position: left top;background-repeat: repeat;background-size: inherit;">
+                <div class="container k2t-wrap" style="">
+                    <h1 class="main-title" style="font-size:30px;line-height:30px;">Shop</h1>
+                    <div class="main-excerpt"></div><!-- .main-excerpt -->
+                </div><!-- k2t-wrap -->
             </div>
-            <div class="clearfix"></div>
-            @if (Model.TotalPages > 1)
-            {
-                // Create numeric links
-                var startPageIndex = Math.Max(1, Model.Page - Model.MaxPage / 2);
-                var endPageIndex = Math.Min(Model.TotalPages, Model.Page + Model.MaxPage / 2);
-                <nav>
-                    <ul class="pagination">
-                        @if (Model.Page > 1)
+            <div class="k2t-content left-sidebar">
+                <section class="k2t-wrap">
+                    <div id="main" class="k2t-shop columns-3">
+                        <h1 class="page-title">Shop</h1>
+                        <div class="page-description"><pre class="brush: php; gutter: false"></pre></div>
+                        @*<form class="woocommerce-ordering" method="get" novalidate="">
+                            <select name="orderby" class="orderby">
+                                <option value="menu_order" selected="selected">Default sorting</option>
+                                <option value="popularity">Sort by popularity</option>
+                                <option value="rating">Sort by average rating</option>
+                                <option value="date">Sort by newness</option>
+                                <option value="price">Sort by price: low to high</option>
+                                <option value="price-desc">Sort by price: high to low</option>
+                            </select>
+                        </form>*@
+
+                        <div class="k2t-product-page">
+                            <div class="product-gallery product-velo isotope-fullwidth isotope-3 pf-3col">
+                                <div class="k2t-isotope-wrapper isotope-3-columns isotope-gallery isotope-velo">
+                                    <div class="article-loop k2t-isotope-container loaded" style="position: relative; height: 1020px;">
+                                        <div class="gutter-sizer"></div>
+                                        <div class="products">
+                                            @foreach (var product in Model.Items)
+                                            {
+                                                var url = "/" + product.Alias + ".p-" + product.ID + ".html";
+                                                <div class="isotope-selector first post-1853 product type-product status-publish has-post-thumbnail product_brand-cyclocross product_brand-sunrise-bikes product_cat-classic product_tag-brown product_tag-classic product_tag-sport product_shipping_class-aland-islands sale shipping-taxable purchasable product-type-variable product-cat-classic product-tag-brown product-tag-classic product-tag-sport instock" style="position: absolute; left: 282px; top: 340px;">
+
+                                                    <article class="product-item">
+                                                        <div class="product-thumb">
+                                                            <a href="@url" rel="nofollow" class="button add_to_cart_button product_type_variable">Add to cart</a>
+                                                            <div>
+                                                                @if (product.PromotionPrice.HasValue)
+                                                                {<span class="onsale">Sale!</span>}
+
+                                                                <img width="570" height="444" src="@product.Image" class="attachment-shop_catalog wp-post-image" alt="p2">
+                                                                <div class="product-name">
+                                                                    <div class="star-rating" title="Rated 5.00 out of 5">
+                                                                        <p class="stars">
+                                                                            <a class="star-5" href="#" style="margin: -40px 0px 0px 15px;"></a>
+                                                                        </p>
+                                                                    </div>
+                                                                    <h3>@product.Name</h3>
+                                                                    <span class="price">
+                                                                        @if (product.PromotionPrice.HasValue)
+                                                                        {<del><span class="amount">$ @product.PromotionPrice.Value.ToString("N0")</span></del>}
+                                                                        <ins><span class="amount">$ @product.Price.ToString("N0")</span></ins>
+
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div><!-- .article-loop -->
+                                </div><!-- .k2t-isotope-wrapper -->
+                            </div><!-- .product-velo -->
+                        </div><!-- .k2t-product-shortcode -->
+
+
+                        @if (Model.TotalPages > 1)
                         {
-                            <li>
-                                <a href="?Keyword=@keyword&page=1" aria-label="First">
-                                    <i class="fa fa-angle-double-left"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="?Keyword=@keyword&page=@(Model.Page-1)" aria-label="Previous">
-                                    <i class="fa fa-angle-double-left"></i>
-                                </a>
-                            </li>
+                            // Create numeric links
+                            var startPageIndex = Math.Max(1, Model.Page - Model.MaxPage / 2);
+                            var endPageIndex = Math.Min(Model.TotalPages, Model.Page + Model.MaxPage / 2);
+
+                            <nav class="woocommerce-pagination">
+                                <ul class="page-numbers">
+                                    @if (Model.Page > 1)
+                                    {
+                                        <li>
+                                            <a href="?page=1" aria-label="First">
+                                                <i class="fa fa-angle-double-left"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="?page=@(Model.Page-1)" aria-label="Previous">
+                                                <i class="fa fa-angle-double-left"></i>
+                                            </a>
+                                        </li>
+                                    }
+
+                                    @for (int i = startPageIndex; i <= endPageIndex; i++)
+                                    {
+                                        if (Model.Page == i)
+                                        {
+                                            <li class="page-numbers"><a href="?page=@i" title="Trang @i">@i</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li><a href="?page=@i" title="Trang @i">@i</a></li>
+                                        }
+                                    }
+                                    @if (Model.Page < Model.TotalPages)
+                                    {
+                                        <li>
+                                            <a href="?page=@(Model.Page+1)" aria-label="Next">
+                                                <i class="fa fa-angle-double-right"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="?page=@Model.TotalPages" aria-label="Last">
+                                                <i class="fa fa-angle-double-right"></i>
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
+                            </nav>
                         }
 
-                        @for (int i = startPageIndex; i <= endPageIndex; i++)
-                        {
-                            if (Model.Page == i)
-                            {
-                                <li class="active"><a href="?Keyword=@keyword&page=@i" title="Trang @i">@i</a></li>
-                              
-                            }
-                            else
-                            {
-                                <li><a href="?Keyword=@keyword&page=@i" title="Trang @i">@i</a></li>
-                            }
-                        }
-                        @if (Model.Page < Model.TotalPages)
-                        {
-                            <li>
-                                <a href="?Keyword=@keyword&page=@(Model.Page+1)" aria-label="Next">
-                                    <i class="fa fa-angle-double-right"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="?Keyword=@keyword&page=@Model.TotalPages" aria-label="Last">
-                                    <i class="fa fa-angle-double-right"></i>
-                                </a>
-                            </li>
-                        }
-                    </ul>
-                </nav>
-            }
-        </div>
-      
-    }
-    else
-    {
-        <div class="text-center">Không có bản ghi nào được tìm thấy.</div>
-    }
-</div>
+                    </div><!-- #main -->
+
+                    <div class="k2t-shop-sidebar" role="complementary">
+                        <aside class="widget woocommerce widget_shopping_cart">
+                            <h2 class="widget-title"><span>Cart</span></h2>
+                            <div class="widget_shopping_cart_content">
+                                <ul class="cart_list product_list_widget ">
+                                    <li class="empty">Kết quả từ khóa tìm được: @keyword- <span>@Model.TotalCount sản phẩm</span></li>
+                                </ul><!-- end product list -->
+                            </div>
+                        </aside>
+                        @{ Html.RenderAction("SideBar", "Product");}
+                        <aside class="widget dhwc_widget_brands">
+                            <h2 class="widget-title"><span>Bike Brands</span></h2>
+                            <ul class="product-brands">
+                                <li class="brand-item brand-item-90"><a href="#">BMX Bikes</a></li>
+                                <li class="brand-item brand-item-89"><a href="#">Cyclocross</a></li>
+                                <li class="brand-item brand-item-92"><a href="#">Sunrise Bikes</a></li>
+                                <li class="brand-item brand-item-91"><a href="#">Velo Bikes</a></li>
+                            </ul>
+                        </aside>
+                        <aside class="widget widget_text">
+                            <div class="textwidget">
+                                <div style="margin:-30px">
+                                    <div class="banner-sc big">
+                                        <article>
+                                            <div class="banner-box"><img src="~/Assets/client/img/uploads/2015/07/Untitled-1.png" alt="image"></div>
+                                            <div class="banner-content none">
+                                                <div class="banner-border" style="border: 1px dashed #ffffff">
+                                                    <div class="banner-content-inner">
+                                                        <div class="k2t-iconbox layout-2" style="">
+                                                            <div class="iconbox-icon " style="color: #ffffff">
+                                                                <i style="font-size: 30px;" class="awesome-bicycle"></i>
+                                                            </div>
+                                                            <div class="iconbox-text icon_fonts">
+                                                                <div class="title">
+                                                                    <h3 style="color: #ffffff;text-transform: inherit;font-size: 30px; line-height: 30px;" class="h">FREE<br>TEST DRIVE</h3>
+                                                                </div>
+                                                                <div class="desc"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="k2t-button align-center">
+                                                            <a id="BMkTEyJjlx" style="" class="k2t-btn btn-no-content btn-medium button-icon-right" href="#" target="_blank">
+                                                                <span class="button-text" style=""><span class="text">Apply Now</span></span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+                        <aside class="widget woocommerce widget_price_filter">
+                            <h2 class="widget-title"><span>Filter by price</span></h2>
+                            <form method="get" novalidate="">
+                                <div class="price_slider_wrapper">
+                                    <div class="price_slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" style="">
+                                        <div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 100%;"></div>
+                                        <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 0%;"></span>
+                                        <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 100%;"></span>
+                                    </div>
+                                    <div class="price_slider_amount">
+                                        <input type="text" id="min_price" name="min_price" value="" data-min="1" placeholder="Min price" style="display: none;">
+                                        <input type="text" id="max_price" name="max_price" value="" data-max="850" placeholder="Max price" style="display: none;">
+                                        <button type="submit" class="button">Filter</button>
+                                        <div class="price_label" style="">
+                                            Price: <span class="from">$1</span> - <span class="to">$850</span>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </aside>
+                    </div><!-- .k2t-sidebar -->
+                </section><!-- .container -->
+            </div>
+        }
+        else
+        {
+            <div class="text-center">Không có bản ghi nào được tìm thấy.</div>
+        }
+    </div>
+    
 </div>

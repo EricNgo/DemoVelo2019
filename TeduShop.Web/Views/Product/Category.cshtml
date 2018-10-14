@@ -1,6 +1,9 @@
 ﻿@model TeduShop.Web.Infrastructure.Core.PaginationSet<TeduShop.Web.Models.ProductViewModel>
+
 @{
+
     var category = (TeduShop.Web.Models.ProductCategoryViewModel)ViewBag.Category;
+
     var pageIndex = Model.Page;
     ViewBag.Title = pageIndex == 1 ? category.Name : category.Name + " - Trang" + pageIndex; ;
     ViewBag.MetaKeyword = pageIndex == 1 ? category.MetaKeyword : category.MetaKeyword + " - Trang" + pageIndex; ;
@@ -8,10 +11,17 @@
     Layout = "~/Views/Shared/_Layouts.cshtml";
 
 }
+<script>
+    function doNavigate() {
+        window.location.href = document.getElementById("UrlList").value;
+    }
+</script>
 <div class="single single-product woocommerce woocommerce-page offcanvas-type-default  offcanvas-left">
     <div class="k2t-body">
         @if (Model.Count > 0)
         {
+            //var startPageIndex1 = Math.Max(1, Model.Page - Model.MaxPage / 2);
+            //var endPageIndex1 = Math.Min(Model.TotalPages, Model.Page + Model.MaxPage / 2);
             <div class="k2t-title-bar underline justify  shadow" style="padding-top:100px;padding-bottom:100px;background-position: left top;background-repeat: repeat;background-size: inherit;">
                 <div class="container k2t-wrap" style="">
                     <h1 class="main-title" style="font-size:30px;line-height:30px;">Shop</h1>
@@ -23,95 +33,127 @@
                     <div id="main" class="k2t-shop columns-3">
                         <h1 class="page-title">Shop</h1>
                         <div class="page-description"><pre class="brush: php; gutter: false"></pre></div>
-                        <form class="woocommerce-ordering" method="get" novalidate="">
-                            <select name="orderby" class="orderby">
-                                <option value="menu_order" selected="selected">Default sorting</option>
-                                <option value="popularity">Sort by popularity</option>
-                                <option value="rating">Sort by average rating</option>
-                                <option value="date">Sort by newness</option>
-                                <option value="price">Sort by price: low to high</option>
-                                <option value="price-desc">Sort by price: high to low</option>
-                            </select>
-                        </form>
+              
+                            <div class="k2t-product-page">
+                                <div class="product-gallery product-velo isotope-fullwidth isotope-3 pf-3col">
+                                    <div class="k2t-isotope-wrapper isotope-3-columns isotope-gallery isotope-velo">
+                                        <div class="article-loop k2t-isotope-container loaded" style="position: relative; height: 1020px;">
+                                            <div class="gutter-sizer"></div>
+                                            <div class="products">
+                                                @foreach (var product in Model.Items)
+                                                {
+                                                    var url = "/" + product.Alias + ".p-" + product.ID + ".html";
+                                                    <div class="isotope-selector first post-1853 product type-product status-publish has-post-thumbnail product_brand-cyclocross product_brand-sunrise-bikes product_cat-classic product_tag-brown product_tag-classic product_tag-sport product_shipping_class-aland-islands sale shipping-taxable purchasable product-type-variable product-cat-classic product-tag-brown product-tag-classic product-tag-sport instock" style="position: absolute; left: 282px; top: 340px;">
 
-                        <div class="k2t-product-page">
-                            <div class="product-gallery product-velo isotope-fullwidth isotope-3 pf-3col">
-                                <div class="k2t-isotope-wrapper isotope-3-columns isotope-gallery isotope-velo">
-                                    <div class="article-loop k2t-isotope-container loaded" style="position: relative; height: 1020px;">
-                                        <div class="gutter-sizer"></div>
-                                        <div class="products">
-                                            @foreach (var product in Model.Items)
-                                            {
-                                                var url = "/" + product.Alias + ".p-" + product.ID + ".html";
-                                                <div class="isotope-selector first post-1853 product type-product status-publish has-post-thumbnail product_brand-cyclocross product_brand-sunrise-bikes product_cat-classic product_tag-brown product_tag-classic product_tag-sport product_shipping_class-aland-islands sale shipping-taxable purchasable product-type-variable product-cat-classic product-tag-brown product-tag-classic product-tag-sport instock" style="position: absolute; left: 282px; top: 340px;">
+                                                        <article class="product-item">
+                                                            <div class="product-thumb">
+                                                                <a href="@url" rel="nofollow" class="button add_to_cart_button product_type_variable">Add to cart</a>
+                                                                <div>
+                                                                    @if (product.PromotionPrice.HasValue && product.Quantity != 0)
+                                                                    {<span class="onsale">Sale!</span>}
 
-                                                    <article class="product-item">
-                                                        <div class="product-thumb">
-                                                            <a href="@url" rel="nofollow" class="button add_to_cart_button product_type_variable">Add to cart</a>
-                                                            <div>
-                                                                @if (product.PromotionPrice.HasValue)
-                                                                {<span class="onsale">Sale!</span>}
+                                                                    <img width="570" height="444" src="@product.Image" class="attachment-shop_catalog wp-post-image" alt="p2">
+                                                                    <div class="product-name">
+                                                                        @if (product.Quantity == 0)
+                                                                        {<span class="onsale soldout">Sold</span>}
+                                                                        <div class="star-rating" title="Rated 5.00 out of 5">
+                                                                            <p class="stars">
+                                                                                <a class="star-5" href="#" style="margin: -40px 0px 0px 15px;"></a>
+                                                                            </p>
+                                                                        </div>
+                                                                        <h3>@product.Name</h3>
+                                                                        <span class="price">
+                                                                            @if (product.PromotionPrice.HasValue)
+                                                                            {<ins><span class="amount">$ @product.PromotionPrice.Value.ToString("N0")</span></ins>
+                                                                            <del><span class="amount">$ @product.Price.ToString("N0")</span></del>}
+                                                                        else
+                                                                        { <ins><span class="amount">$ @product.Price.ToString("N0")</span></ins>}
 
-                                                                <img width="570" height="444" src="@product.Image" class="attachment-shop_catalog wp-post-image" alt="p2">
-                                                                <div class="product-name">
-                                                                    <div class="star-rating" title="Rated 5.00 out of 5">
-                                                                        <p class="stars">
-                                                                            <a class="star-5" href="#" style="margin: -40px 0px 0px 15px;"></a>
-                                                                        </p>
+
+                                                                        </span>
                                                                     </div>
-                                                                    <h3>@product.Name</h3>
-                                                                    <span class="price">
-                                                                        <ins style="font-size: 25px;"><span class="amount">$ @product.Price.ToString("N0")</span></ins>
-                                                                        @if (product.PromotionPrice.HasValue)
-                                                                        {<del style="font-size: 25px;"><span class="amount">$ @product.PromotionPrice.Value.ToString("N0")</span></del>}
-                                                                    </span>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </article>
-                                                </div>
+                                                        </article>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div><!-- .article-loop -->
+                                    </div><!-- .k2t-isotope-wrapper -->
+                                </div><!-- .product-velo -->
+                            </div><!-- .k2t-product-shortcode -->
+
+
+                            @if (Model.TotalPages > 1)
+                            {
+                                // Create numeric links
+                                var startPageIndex = Math.Max(1, Model.Page - Model.MaxPage / 2);
+                                var endPageIndex = Math.Min(Model.TotalPages, Model.Page + Model.MaxPage / 2);
+
+                                <nav class="woocommerce-pagination">
+                                    <ul class="page-numbers">
+                                        @if (Model.Page > 1)
+                                        {
+                                            <li>
+                                                <a href="?page=1" aria-label="First">
+                                                    <i class="fa fa-angle-double-left"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="?page=@(Model.Page-1)" aria-label="Previous">
+                                                    <i class="fa fa-angle-double-left"></i>
+                                                </a>
+                                            </li>
+                                        }
+
+                                        @for (int i = startPageIndex; i <= endPageIndex; i++)
+                                        {
+                                            if (Model.Page == i)
+                                            {
+                                                <li class="page-numbers"><a href="?page=@i" title="Trang @i">@i</a></li>
                                             }
-                                        </div>
-                                    </div><!-- .article-loop -->
-                                </div><!-- .k2t-isotope-wrapper -->
-                            </div><!-- .product-velo -->
-                        </div><!-- .k2t-product-shortcode -->
-                        <nav class="woocommerce-pagination">
-                            <ul class="page-numbers">
-                                <li><span class="page-numbers current">1</span></li>
-                                <li><a class="page-numbers" href="#">2</a></li>
-                                <li><a class="page-numbers" href="#">3</a></li>
-                                <li><a class="next page-numbers" href="#">&rarr;</a></li>
-                            </ul>
-                        </nav>
-                    </div><!-- #main -->
+                                            else
+                                            {
+                                                <li><a href="?page=@i" title="Trang @i">@i</a></li>
+                                            }
+                                        }
+                                        @if (Model.Page < Model.TotalPages)
+                                        {
+                                            <li>
+                                                <a href="?page=@(Model.Page+1)" aria-label="Next">
+                                                    <i class="fa fa-angle-double-right"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="?page=@Model.TotalPages" aria-label="Last">
+                                                    <i class="fa fa-angle-double-right"></i>
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </nav>
+                            }
+
+                        </div><!-- #main -->
 
                     <div class="k2t-shop-sidebar" role="complementary">
                         <aside class="widget woocommerce widget_shopping_cart">
-                            <h2 class="widget-title"><span>Cart</span></h2>
+                            <h2 class="widget-title"><span>Items</span></h2>
                             <div class="widget_shopping_cart_content">
                                 <ul class="cart_list product_list_widget ">
-                                    <li class="empty">No products in the cart.</li>
+                                    <li class="empty"> <a href="/@(category.Alias).pc-@(category.ID).html">@category.Name - <span>@Model.TotalCount sản phẩm</span> </a></li>
                                 </ul><!-- end product list -->
                             </div>
                         </aside>
-                        <aside class="widget woocommerce widget_product_categories">
-                            <h2 class="widget-title"><span>Bike Categories</span></h2>
-                            <ul class="product-categories">
-                                <li class="cat-item cat-item-68"><a href="#">Biframes</a></li>
-                                <li class="cat-item cat-item-69"><a href="#">Classic</a></li>
-                                <li class="cat-item cat-item-67"><a href="#">Dare balance</a></li>
-                                <li class="cat-item cat-item-94"><a href="#">Hiring</a></li>
-                                <li class="cat-item cat-item-66"><a href="#">Sport</a></li>
-                            </ul>
-                        </aside>
+                        @{ Html.RenderAction("SideBar", "Product");}
                         <aside class="widget dhwc_widget_brands">
-                            <h2 class="widget-title"><span>Bike Brands</span></h2>
+                            <h2 class="widget-title"><span>Sorting Items</span></h2>
                             <ul class="product-brands">
-                                <li class="brand-item brand-item-90"><a href="#">BMX Bikes</a></li>
-                                <li class="brand-item brand-item-89"><a href="#">Cyclocross</a></li>
-                                <li class="brand-item brand-item-92"><a href="#">Sunrise Bikes</a></li>
-                                <li class="brand-item brand-item-91"><a href="#">Velo Bikes</a></li>
+                                <li class="brand-item brand-item-90"><a href="?page=@Model.Page&sort=hot" value="hot">Sorting by Hottest</a></li>
+                                <li class="brand-item brand-item-89"><a href="?page=@Model.Page&sort=popular" value="popular">Sorting by Popularity</a></li>
+                                <li class="brand-item brand-item-92"><a href="?page=@Model.Page&sort=discount" value="discount">Sorting by Discount</a></li>
+                                <li class="brand-item brand-item-90"><a href="?page=@Model.Page&sort=price" value="price">Sorting by Prices:low->high</a></li>
+                              
                             </ul>
                         </aside>
                         <aside class="widget widget_text">
@@ -119,7 +161,7 @@
                                 <div style="margin:-30px">
                                     <div class="banner-sc big">
                                         <article>
-                                            <div class="banner-box"><img src="img/uploads/2015/07/Untitled-1.png" alt="image"></div>
+                                            <div class="banner-box"><img src="~/Assets/client/img/uploads/2015/07/Untitled-1.png" alt="image"></div>
                                             <div class="banner-content none">
                                                 <div class="banner-border" style="border: 1px dashed #ffffff">
                                                     <div class="banner-content-inner">
@@ -177,4 +219,5 @@
             <div class="text-center">Không có bản ghi nào được tìm thấy.</div>
         }
     </div>
+    
 </div>

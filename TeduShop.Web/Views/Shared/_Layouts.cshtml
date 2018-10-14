@@ -17,7 +17,9 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Responsive -->
     <link rel="stylesheet" type="text/css" href="~/Assets/client/css/responsive.css">
+    <link href="~/Assets/client/css/js_composer.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="~/Assets/client/css/composer.css">
+
     <!-- Woocommerce -->
     <link rel="stylesheet" type="text/css" href="~/Assets/client/css/woocommerce.css">
     <link rel="stylesheet" type="text/css" href="~/Assets/client/css/style.css">
@@ -294,6 +296,65 @@
         }
     </style>
 
+    <!-- Custom css -->
+    <style type="text/css">
+  		.k2t-content {
+		    padding-top: 0;
+		}
+		#single-product-image-wrap #nav {
+		    display: none;
+		}
+		#single-product-image-wrap .owl-theme .owl-controls {
+		    display: block ! important;
+		    background: #fff;
+		}
+		.product-img-cont {
+		    max-width: 700px;
+		    margin: 0 auto;
+		}
+		.k2t-wrap, .dhvc-woocommerce-page .container{
+		    max-width: inherit;
+		}
+		.woocommerce div.product .product-related {
+		    max-width: 1170px;
+		    margin: 0 auto;
+		}
+		.k2t-iconbox.layout-2 > .iconbox-text > .title > .h {
+		    font-family: "PT Serif";
+		    font-style: italic;
+		}
+		.k2t-button.grey-button a {
+		    background: #252525;
+		}
+		.k2t-button.grey-button a:hover {
+		    background: #bdb099;
+		}
+		.k2t-counter .title {
+		    text-transform: uppercase;
+		}
+		.custom_1438070110372{margin-top: 0px ;margin-right: 0px ;margin-bottom: 0px ;margin-left: 0px ;}
+		.custom_1439265274538{margin-top: 0px ;margin-bottom: 0px ;padding-top: 100px ;padding-bottom: 80px ;}
+		.custom_1438067732686{margin-top: 0px ;margin-bottom: 0px ;padding-top: 0px ;padding-bottom: 0px ;}
+		.custom_1438067748540{margin-top: 0px ;margin-bottom: 0px ;padding-top: 0px ;padding-bottom: 0px ;}
+		.custom_1438069950459{margin-top: 0px ;margin-bottom: 0px ;padding-top: 0px ;padding-bottom: 0px ;}
+		.custom_1438068993557{margin-top: 0px ;margin-right: 0px ;margin-bottom: 0px ;margin-left: 0px ;padding-top: 0px ;padding-bottom: 50px ;}
+		.custom_1439293237941{padding-right: 0px ;padding-left: 0px ;}
+		.custom_1438070083084{padding-top: 110px ;padding-bottom: 80px ;padding-left: 80px ;background-color: #e3e3e3 ;}
+		.custom_1438067711555{padding-top: 80px ;padding-right: 80px ;padding-bottom: 80px ;padding-left: 80px ;}
+		.custom_1438662057640{padding-top: 300px ;padding-bottom: 300px ;}
+		.custom_1438662103817{padding-top: 300px ;padding-right: 0px ;padding-bottom: 300px ;padding-left: 0px ;}
+		.custom_1438067825929{padding-top: 80px ;padding-right: 80px ;padding-bottom: 80px ;padding-left: 80px ;}
+		.custom_1441968377962{padding-top: 90px ;padding-right: 40px ;padding-bottom: 80px ;padding-left: 80px ;}
+		.custom_1441968292573{padding-top: 40px ;padding-right: 50px ;padding-bottom: 80px ;padding-left: 40px ;}
+		.custom_1436951048605{padding-right: 0px ;padding-left: 0px ;}
+
+		.media only screen and (max-width: 320px) {
+			.custom_1438067711555 {
+				padding: 30px !important;
+			}
+		}
+    </style>
+
 
 
 
@@ -335,6 +396,9 @@
     <script type="text/javascript" src="~/Assets/client/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
     <script type="text/javascript" src="~/Assets/client/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
 
+    <!---tab-->
+    <script src="~/Assets/client/js/jquery.accordion.js"></script>
+    <script src="~/Assets/client/js/jquery-ui.js"></script>
 
 </head>
 <body class="home page page-id-159 page-template-default offcanvas-type-default  offcanvas-left">
@@ -345,7 +409,7 @@
     </div>
     @*<script src="~/Assets/client/js/jquery.min.js"></script>*@
     <script src="~/Assets/client/js/common.js"></script>
-
+    <script src="~/Assets/client/js/controllers/shoppingCart.js"></script>
     <!-- show offcavs sidebar -->
     <div class="offcanvas-sidebar">
         <div class="k2t-sidebar">
@@ -509,7 +573,7 @@
 
     <!-- Counter -->
     <!-- Carousel -->
-    <script>
+    <script  type="text/javascript">
         (function ($) {
             "use strict";
             $(function () {
@@ -542,6 +606,60 @@
                             items: 1,
                         },
                     },
+                    navText: ["<i class=\"fa fa-chevron-left\"></i>", "<i class=\"fa fa-chevron-right\"></i>"],
+                });
+                $(".wc-tabs-wrapper").tabs();
+   
+                $(".product-img").owlCarousel({
+                    margin: 0,
+                    items: 1,
+                    callbacks: true,
+                    URLhashListener: true,
+                    startPosition: 'URLHash',
+                    dots: true,
+                    nav: true,
+                    navText: ["<i class=\"fa fa-chevron-left\"></i>", "<i class=\"fa fa-chevron-right\"></i>"],
+                });
+                $("#nav").owlCarousel({
+                    margin: 10,
+                    items: 4,
+                    loop: true,
+                    dots: false,
+                    nav: true,
+                    navText: ["<i class=\"fa fa-chevron-left\"></i>", "<i class=\"fa fa-chevron-right\"></i>"],
+
+                });
+                $('#nav a').on('click', function (event) {
+                    var $this = $(this);
+                    $this.addClass('clicked');
+                    $(this).parent().siblings().children('a').removeClass('clicked');
+                });
+            });
+            $(function () {
+                var owl = $(".relate-item");
+                owl.owlCarousel({
+                    margin: 30,
+                    items: 4,
+                    responsive: {
+                        1199: {
+                            items: 4,
+                        },
+                        979: {
+                            items: 4,
+                        },
+                        768: {
+                            items: 2,
+                        },
+                        479: {
+                            items: 1,
+                        },
+                        0: {
+                            items: 1,
+                        },
+                    },
+                    nav: false,
+                    loop: false,
+                    dots: true,
                     navText: ["<i class=\"fa fa-chevron-left\"></i>", "<i class=\"fa fa-chevron-right\"></i>"],
                 });
             });

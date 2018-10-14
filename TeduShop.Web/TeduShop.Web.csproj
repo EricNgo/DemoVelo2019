@@ -228,7 +228,6 @@
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
-    <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -5022,6 +5021,7 @@
     <Content Include="Assets\admin\libs\toastr\toastr.min.js" />
     <Content Include="Assets\client\css\composer.css" />
     <Content Include="Assets\client\css\icon-font-style.css" />
+    <Content Include="Assets\client\css\js_composer.css" />
     <Content Include="Assets\client\css\megamenu.css" />
     <Content Include="Assets\client\css\owl.css" />
     <Content Include="Assets\client\css\popular.css" />
@@ -5073,7 +5073,13 @@
     <Content Include="Assets\client\img\uploads\2015\05\p14-120x90.jpg" />
     <Content Include="Assets\client\img\uploads\2015\05\p14-570x444.jpg" />
     <Content Include="Assets\client\img\uploads\2015\05\p14.jpg" />
+    <Content Include="Assets\client\img\uploads\2015\05\p17-120x90.jpg" />
+    <Content Include="Assets\client\img\uploads\2015\05\p17-570x444.jpg" />
     <Content Include="Assets\client\img\uploads\2015\05\p17.jpg" />
+    <Content Include="Assets\client\img\uploads\2015\05\p18-120x90.jpg" />
+    <Content Include="Assets\client\img\uploads\2015\05\p18-570x444.jpg" />
+    <Content Include="Assets\client\img\uploads\2015\05\p19-120x90.jpg" />
+    <Content Include="Assets\client\img\uploads\2015\05\p19-570x444.jpg" />
     <Content Include="Assets\client\img\uploads\2015\05\p19.jpg" />
     <Content Include="Assets\client\img\uploads\2015\05\p20.jpg" />
     <Content Include="Assets\client\img\uploads\2015\05\p3.jpg" />
@@ -5086,6 +5092,8 @@
     <Content Include="Assets\client\img\uploads\2015\06\post-2-500x333.jpg" />
     <Content Include="Assets\client\img\uploads\2015\07\16913287950_263d5d1b1d_b-500x333.jpg" />
     <Content Include="Assets\client\img\uploads\2015\07\bc-blue-412.png" />
+    <Content Include="Assets\client\img\uploads\2015\07\detail-1.jpg" />
+    <Content Include="Assets\client\img\uploads\2015\07\detail-2.jpg" />
     <Content Include="Assets\client\img\uploads\2015\07\p15-120x90.jpg" />
     <Content Include="Assets\client\img\uploads\2015\07\p15-570x444.jpg" />
     <Content Include="Assets\client\img\uploads\2015\07\p15.jpg" />
@@ -5422,9 +5430,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\HeaderStore.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\CategoryStore.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Product\Category.cshtml" />
@@ -5767,6 +5772,7 @@
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Shared\_Layouts.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Product\SideBar.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

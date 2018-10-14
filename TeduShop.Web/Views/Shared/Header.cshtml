@@ -180,22 +180,6 @@
                 </ul>
             </div>
             <div class="col-2 right">
-                <div class="h-element ">
-                    <div class="shop-cart">
-                        <a class="cart-control" href="cart.html" title="View your shopping cart">
-                            <i class="icon-basket"></i>
-                            <span>0</span>
-                        </a>
-
-                        <div class="shop-item">
-                            <div class="widget_shopping_cart_content">
-                                <ul class="cart_list product_list_widget ">
-                                    <li class="empty"><span>No products in the cart.</span>	</li>
-                                </ul><!-- end product list -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="h-element search-box  style-2">
                     <i class="icon-magnifier "></i>
                     <div class="k2t-search-form">
@@ -218,10 +202,10 @@
                                     <div class="innericon"></div>
                                 </div>
                                 <div class="proinput" style="width: 228px;">
-                                    <form action="#" autocomplete="off" novalidate="">
-                                        <input type="search" class="orig" placeholder="Search here..." name="phrase" value="" autocomplete="off" style="width: 323px; position: absolute; z-index: 2; outline: none">
-                                        <input type="text" class="autocomplete" name="phrase" value="" autocomplete="off" style="width: 323px; position: absolute; top: 0px; left: 0px; opacity: 0.25; z-index: 1;">
-                                        <input type="submit" style="width:0; height: 0; visibility: hidden;">
+                                    <form action="/tim-kiem.html" method="get">
+                                        <input class="searchTermss" type="text" id="txtKeyword" name="keyword" placeholder="Search..." />
+
+                                        <input class="searchButtonss" type="submit" value="Search" />
                                     </form>
                                 </div>
                                 <div class="proloading" style="display: none"></div>
@@ -258,6 +242,23 @@
                         </div>
                     </div>
                 </div>
+                <div class="h-element ">
+                    <div class="shop-cart">
+                        <a class="cart-control" href="cart.html" title="View your shopping cart">
+                            <i class="icon-basket"></i>
+                            <span>0</span>
+                        </a>
+
+                        <div class="shop-item">
+                            <div class="widget_shopping_cart_content">
+                                <ul class="cart_list product_list_widget ">
+                                    <li class="empty"><span>No products in the cart.</span>	</li>
+                                </ul><!-- end product list -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div><!-- .row -->
     </div><!-- .k2t-header-mid -->
