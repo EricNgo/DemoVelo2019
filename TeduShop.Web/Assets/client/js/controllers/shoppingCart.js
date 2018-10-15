@@ -4,32 +4,32 @@
         cart.registerEvent();
     },
     registerEvent: function () {
-        $('#frmPayment').validate({
-            rules: {
-                name: "required",
-                address: "required",
-                email: {
-                    required: true,
-                    email: true
-                },
-                phone: {
-                    required: true,
-                    number: true
-                }
-            },
-            messages: {
-                name: "Yêu cầu nhập tên",
-                address: "Yêu cầu nhập địa chỉ",
-                email: {
-                    required: "Bạn cần nhập email",
-                    email: "Định dạng email chưa đúng"
-                },
-                phone: {
-                    required: "Số điện thoại được yêu cầu",
-                    number: "Số điện thoại phải là số."
-                }
-            }
-        });
+        //$('#frmPayment').validate({
+        //    rules: {
+        //        name: "required",
+        //        address: "required",
+        //        email: {
+        //            required: true,
+        //            email: true
+        //        },
+        //        phone: {
+        //            required: true,
+        //            number: true
+        //        }
+        //    },
+        //    messages: {
+        //        name: "Yêu cầu nhập tên",
+        //        address: "Yêu cầu nhập địa chỉ",
+        //        email: {
+        //            required: "Bạn cần nhập email",
+        //            email: "Định dạng email chưa đúng"
+        //        },
+        //        phone: {
+        //            required: "Số điện thoại được yêu cầu",
+        //            number: "Số điện thoại phải là số."
+        //        }
+        //    }
+        //});
         $('.btnDeleteItem').off('click').on('click', function (e) {
             e.preventDefault();
             var productId = parseInt($(this).data('id'));
@@ -242,7 +242,7 @@
                     $('#cartBody').html(html);
 
                     if (html == '') {
-                        $('#cartContent').html('Không có sản phẩm nào trong giỏ hàng.');
+                        $('#cartContent').html('<strong>Hiện tại không có sản phẩm nào trong giỏ hàng.</strong>');
                     }
                     $('#lblTotalOrder').text(numeral(cart.getTotalOrder()).format('0,0'));
                     cart.registerEvent();

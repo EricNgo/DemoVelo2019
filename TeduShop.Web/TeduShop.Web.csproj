@@ -5140,6 +5140,7 @@
     <Content Include="Assets\client\js\jquery-ui.js" />
     <Content Include="Assets\client\js\jquery.accordion.js" />
     <Content Include="Assets\client\js\jquery.counterup.min.js" />
+    <Content Include="Assets\client\js\jquery.js" />
     <Content Include="Assets\client\js\jquery.min.js" />
     <Content Include="Assets\client\js\lodash.min.js" />
     <Content Include="Assets\client\js\main.js" />
