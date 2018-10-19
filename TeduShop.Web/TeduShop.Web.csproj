@@ -5020,6 +5020,7 @@
     <Content Include="Assets\admin\libs\toastr\toastr.min.css" />
     <Content Include="Assets\admin\libs\toastr\toastr.min.js" />
     <Content Include="Assets\client\css\composer.css" />
+    <Content Include="Assets\client\css\custom.css" />
     <Content Include="Assets\client\css\icon-font-style.css" />
     <Content Include="Assets\client\css\js_composer.css" />
     <Content Include="Assets\client\css\megamenu.css" />
@@ -5028,12 +5029,14 @@
     <Content Include="Assets\client\css\responsive.css" />
     <Content Include="Assets\client\css\shortcodes.css" />
     <Content Include="Assets\client\css\simple-line-icons.css" />
+    <Content Include="Assets\client\css\Site.css" />
     <Content Include="Assets\client\css\style.css" />
     <Content Include="Assets\client\css\styleFrontEnd.css" />
     <Content Include="Assets\client\css\syntax.css" />
     <Content Include="Assets\client\css\vendor\font-awesome.min.css" />
     <Content Include="Assets\client\css\vendor\fontawesome.min.css" />
     <Content Include="Assets\client\css\woocommerce.css" />
+    <Content Include="Assets\client\img\bank_logo.png" />
     <Content Include="Assets\client\img\blockquote.png" />
     <Content Include="Assets\client\img\cart-spinner.png" />
     <Content Include="Assets\client\img\Circle-bg.png" />
@@ -5121,6 +5124,7 @@
     <Content Include="Assets\client\img\uploads\revslider\dummy.png" />
     <Content Include="Assets\client\img\uploads\revslider\home-slider\slide1.png" />
     <Content Include="Assets\client\img\uploads\revslider\home-slider\slide2.jpg" />
+    <Content Include="Assets\client\js\jquery.min.js" />
     <Content Include="Assets\client\js\common.js" />
     <Content Include="Assets\client\js\common1.js" />
     <Content Include="Assets\client\js\controllers\contact.js" />
@@ -5141,7 +5145,6 @@
     <Content Include="Assets\client\js\jquery.accordion.js" />
     <Content Include="Assets\client\js\jquery.counterup.min.js" />
     <Content Include="Assets\client\js\jquery.js" />
-    <Content Include="Assets\client\js\jquery.min.js" />
     <Content Include="Assets\client\js\lodash.min.js" />
     <Content Include="Assets\client\js\main.js" />
     <Content Include="Assets\client\js\owl.carousel.min.js" />
