@@ -4,159 +4,164 @@
     ViewBag.MetaDescription = "Thanh Toán Sản Phẩm";
     Layout = "~/Views/Shared/_Layouts.cshtml";
 }
+
+@section footerJS{
+
+    <script src="~/Assets/client/js/controllers/shoppingCart.js"></script>
+}
 <div class="page-template-default page page-id-919 woocommerce-cart woocommerce-page offcanvas-type-default  offcanvas-left wpb-js-composer js-comp-ver-5.3 vc_responsive">
-    <div class="k2t-body">
-        <div id="cartContent">
-            <div class="k2t-title-bar underline center  shadow" style="padding-bottom:80px;background-position: left top;background-repeat: repeat;background-size: inherit;">
-                <div class="container k2t-wrap" style="padding-top:100px;">
-                    <h1 class="main-title" style="font-size:30px;line-height:30px;">Cart</h1>
-                    <div class="main-excerpt"></div>
-                    <!-- .main-excerpt -->
-                </div>
-                <!-- k2t-wrap -->
+    <div class="k2t-body" id="cartContent">
+
+        <div class="k2t-title-bar underline center  shadow" style="padding-bottom:80px;background-position: left top;background-repeat: repeat;background-size: inherit;">
+            <div class="container k2t-wrap" style="padding-top:100px;">
+                <h1 class="main-title" style="font-size:30px;line-height:30px;">Cart</h1>
+                <div class="main-excerpt"></div>
+                <!-- .main-excerpt -->
             </div>
-            <!-- .k2t-title-bar -->
-            <div class="k2t-content no-sidebar">
-                <div class="k2t-main page" role="main">
-                    <article id="post-919" class="post-919 page type-page status-publish hentry">
-                        <div class="page-entry">
-                            <div id="euz2q1gfsc" class="vc_row wpb_row vc_row-fluid k2t-line-bottom  vc_custom_1433928419776" style="position: relative;">
-                                <div class="container">
-                                    <div style="z-index: 10; position: relative;">
-                                        <div id="snl6btgcrE" class="vc_col-sm-12 wpb_column vc_column_container vc_custom_1433928370761" style="position: relative;">
-                                            <div class="wpb_wrapper">
-                                                <div class="woocommerce">
-
-                                                    <table class="shop_table cart" cellspacing="0">
-                                  
-                                                        <tbody>
-                                                            <tr id="cartBody"></tr>
-                                                            <tr>
-                                                                <td colspan="6" class="actions">
-                                                                    <input type="submit" class="btn btn-success" id="btnContinue" value="Continue Basket" />
-                                                                    <input type="hidden" id="_wpnonce" name="_wpnonce" value="7ab7a78ac8" />
-                                                                    <input type="hidden" name="_wp_http_referer" value="/velo/cart/" />
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-
-                                                    <div class="cart-after">
-                                                        <div class="cart-collaterals">
-                                                            <div class="cart-coupon">
-                                                                <div class="coupon">
-                                                                    <form class="checkout_coupon" method="post">
-                                                                        <input type="text" name="coupon_code" class="input-text" placeholder="Coupon code" id="coupon_code" value="" />
-                                                                        <input type="submit" class="button" name="apply_coupon" value="Apply Coupon" />
-                                                                        <div class="clear"></div>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                            <div class="cart_totals ">
-                                                                <h2>Cart totals</h2>
-                                                                <table cellspacing="0" class="shop_table shop_table_responsive">
-                                                                    <tr class="cart-subtotal">
-                                                                        <th>Subtotal</th>
-                                                                        <td data-title="Subtotal">
-                                                                            <span class="woocommerce-Price-amount amount">
-                                                                                <span class="woocommerce-Price-currencySymbol"></span>
-                                                                                ---
-                                                                            </span>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr class="order-total">
-                                                                        <th>Total</th>
-                                                                        <td data-title="Total">
-                                                                            <strong>
-                                                                                <span class="woocommerce-Price-amount amount">
-                                                                                    <span class="woocommerce-Price-currencySymbol" id="lblTotalOrder">&#36;</span>
-
-                                                                                </span>
-                                                                            </strong>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                                <div class="wc-proceed-to-checkout">
-                                                                    <a  id="btnCheckout" class="checkout-button button alt wc-forward">Proceed to checkout</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <script>
-                                                        (function ($) {
-                                                            "use strict";
-
-                                                            $(document).ready(function () {
-                                                                var owl = $(".k2t-carousel");
-                                                                owl.owlCarousel({
-                                                                    items: 3,
-                                                                    loop: false,
-                                                                    margin: 30,
-                                                                    autoplay: false,
-                                                                    autoplayTimeout: 6000,
-                                                                    autoplayHoverPause: false,
-                                                                    nav: false,
-                                                                    dots: false,
-                                                                    responsive: {
-                                                                        1199: {
-                                                                            items: 3,
-                                                                        },
-                                                                        979: {
-                                                                            items: 2,
-                                                                        },
-                                                                        768: {
-                                                                            items: 2,
-                                                                        },
-                                                                        479: {
-                                                                            items: 1,
-                                                                        },
-                                                                        0: {
-                                                                            items: 1,
-                                                                        },
-                                                                    },
-                                                                });
-                                                            });
-                                                        }
-                                                        )(jQuery);
-                                                    </script>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="VKDJgxRzTa" class="vc_row wpb_row vc_row-fluid   vc_custom_1432802177538" style="position: relative;">
-                                <div class="container">
-                                    <div style="z-index: 10; position: relative;">
-                                        <div id="58eSZAo9Ui" class="vc_col-sm-12 wpb_column vc_column_container" style="position: relative;">
-                                            <div class="wpb_wrapper">
-                                                <div class="k2t-brands brands-5-columns">
-                                                    <div class="brand-table">
-                                                        <div class="brand-row">
-                                                            <div class="brand-cell "></div>
-                                                            <div class="brand-cell "></div>
-                                                            <div class="brand-cell "></div>
-                                                            <div class="brand-cell "></div>
-                                                            <div class="brand-cell "></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                        <!-- .page-entry -->
-                    </article>
-                    <!-- #post-## -->
-                    <div class="clear"></div>
-                </div>
-                <!-- #main -->
-            </div>
-            <!-- .k2t-content -->
+            <!-- k2t-wrap -->
         </div>
+        <!-- .k2t-title-bar -->
+        <div class="k2t-content no-sidebar">
+            <div class="k2t-main page" role="main">
+                <article id="post-919" class="post-919 page type-page status-publish hentry">
+                    <div class="page-entry">
+                        <div id="euz2q1gfsc" class="vc_row wpb_row vc_row-fluid k2t-line-bottom  vc_custom_1433928419776" style="position: relative;">
+                            <div class="container">
+                                <div style="z-index: 10; position: relative;">
+                                    <div id="snl6btgcrE" class="vc_col-sm-12 wpb_column vc_column_container vc_custom_1433928370761" style="position: relative;">
+                                        <div class="wpb_wrapper">
+                                            <div class="woocommerce">
+
+                                                <table class="shop_table cart" cellspacing="0">
+
+                                                    <tbody>
+                                                        <tr id="cartBody"></tr>
+                                                        <tr>
+                                                            <td colspan="6" class="actions">
+                                                                <input type="submit" class="btn btn-success" id="btnContinue" value="Continue Basket" />
+                                                                <input type="hidden" id="_wpnonce" name="_wpnonce" value="7ab7a78ac8" />
+                                                                <input type="hidden" name="_wp_http_referer" value="/velo/cart/" />
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                                <div class="cart-after">
+                                                    <div class="cart-collaterals">
+                                                        <div class="cart-coupon">
+                                                            <div class="coupon">
+                                                                <form class="checkout_coupon" method="post">
+                                                                    <input type="text" name="coupon_code" class="input-text" placeholder="Coupon code" id="coupon_code" value="" />
+                                                                    <input type="submit" class="button" name="apply_coupon" value="Apply Coupon" />
+                                                                    <div class="clear"></div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cart_totals ">
+                                                            <h2>Cart totals</h2>
+                                                            <table cellspacing="0" class="shop_table shop_table_responsive">
+                                                                <tr class="cart-subtotal">
+                                                                    <th>Subtotal</th>
+                                                                    <td data-title="Subtotal">
+                                                                        <span class="woocommerce-Price-amount amount">
+                                                                            <span class="woocommerce-Price-currencySymbol"></span>
+                                                                            ---
+                                                                        </span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="order-total">
+                                                                    <th>Total</th>
+                                                                    <td data-title="Total">
+                                                                        <strong>
+                                                                            <span class="woocommerce-Price-amount amount">
+                                                                                <span class="woocommerce-Price-currencySymbol" id="lblTotalOrder">&#36;</span>
+
+                                                                            </span>
+                                                                        </strong>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                            <div class="wc-proceed-to-checkout">
+                                                                <a id="btnCheckout" class="checkout-button button alt wc-forward">Proceed to checkout</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <script>
+                                                    (function ($) {
+                                                        "use strict";
+
+                                                        $(document).ready(function () {
+                                                            var owl = $(".k2t-carousel");
+                                                            owl.owlCarousel({
+                                                                items: 3,
+                                                                loop: false,
+                                                                margin: 30,
+                                                                autoplay: false,
+                                                                autoplayTimeout: 6000,
+                                                                autoplayHoverPause: false,
+                                                                nav: false,
+                                                                dots: false,
+                                                                responsive: {
+                                                                    1199: {
+                                                                        items: 3,
+                                                                    },
+                                                                    979: {
+                                                                        items: 2,
+                                                                    },
+                                                                    768: {
+                                                                        items: 2,
+                                                                    },
+                                                                    479: {
+                                                                        items: 1,
+                                                                    },
+                                                                    0: {
+                                                                        items: 1,
+                                                                    },
+                                                                },
+                                                            });
+                                                        });
+                                                    }
+                                                    )(jQuery);
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="VKDJgxRzTa" class="vc_row wpb_row vc_row-fluid   vc_custom_1432802177538" style="position: relative;">
+                            <div class="container">
+                                <div style="z-index: 10; position: relative;">
+                                    <div id="58eSZAo9Ui" class="vc_col-sm-12 wpb_column vc_column_container" style="position: relative;">
+                                        <div class="wpb_wrapper">
+                                            <div class="k2t-brands brands-5-columns">
+                                                <div class="brand-table">
+                                                    <div class="brand-row">
+                                                        <div class="brand-cell "></div>
+                                                        <div class="brand-cell "></div>
+                                                        <div class="brand-cell "></div>
+                                                        <div class="brand-cell "></div>
+                                                        <div class="brand-cell "></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <!-- .page-entry -->
+                </article>
+                <!-- #post-## -->
+                <div class="clear"></div>
+            </div>
+            <!-- #main -->
+        </div>
+        <!-- .k2t-content -->
+
         <div id="divCheckout" style="display:none;">
             <div class="k2t-content no-sidebar">
                 <div class="k2t-main page" role="main">
@@ -168,7 +173,7 @@
                                         <div id="XzGO5rVlJN" class="vc_col-sm-12 wpb_column vc_column_container" style="position: relative;">
                                             <div class="wpb_wrapper">
                                                 <div class="woocommerce">
-                                                    <form  id="frmPayment" method="post" class="checkout woocommerce-checkout"  enctype="multipart/form-data" novalidate="novalidate">
+                                                    <form id="frmPayment" method="post" class="checkout woocommerce-checkout"  >
                                                         <div id="customer_details">
                                                             <div class="checkout_billing">
                                                                 <div class="woocommerce-billing-fields">
@@ -182,41 +187,47 @@
                                                                         </label><br />
 
                                                                     }
+                                                                                <p class="form-row form-row-wide address-field validate-postcode validate-required" id="billing_postcode_field" data-priority="90" data-o_class="form-row form-row-wide address-field validate-required validate-postcode">
+                                                                                    <input type="text" class="input-text" name="name" id="txtName" placeholder="Full Name *" value=""  required>
+                                                                                   
+                                                                                </p>
+
+
+                                                                                <p class="form-row form-row-wide address-field validate-postcode validate-required" id="billing_postcode_field" data-priority="90" data-o_class="form-row form-row-wide address-field validate-required validate-postcode">
+                                                                                    <input type="number" class="input-text " id="txtPhone" name="phone" placeholder="Phone*" value=""  required>
+                                                                             
+                                                                                </p>
+
+
                                                                     <p class="form-row form-row-wide address-field validate-postcode validate-required" id="billing_postcode_field" data-priority="90" data-o_class="form-row form-row-wide address-field validate-required validate-postcode">
-                                                                        <input type="text" class="input-text" name="name" id="txtName" placeholder="Full Name *" value="" autocomplete="postal-code" required="">
-                                                                    </p>
-
-                                                                    <p class="form-row form-row-first validate-required validate-phone" id="billing_phone_field" data-priority="100">
-                                                                        <input type="tel" class="input-text " id="txtPhone" name="phone"  placeholder="Phone*" value="" autocomplete="tel" required="">
-                                                                    </p>
-
-
-                                                                    <p class="form-row form-row-wide address-field validate-postcode validate-required" id="billing_postcode_field" data-priority="90" data-o_class="form-row form-row-wide address-field validate-required validate-postcode">
-                                                                        <input type="text" class="input-text " id="txtEmail" name="email" placeholder="User@Domain *" value="" autocomplete="postal-code" required="">
+                                                                        <input type="email" class="input-text " id="txtEmail" name="email" placeholder="User@Domain *" value="" required>
+                                                           
                                                                     </p>
                                                                     <p class="form-row form-row-wide address-field validate-required" id="billing_address_1_field" data-priority="50">
-                                                                        <input type="text" class="input-text " id="txtAddress" name="address"  placeholder="Address *" value="" autocomplete="address-line1" required="">
+                                                                        <input type="text" class="input-text " id="txtAddress" name="address" placeholder="Address *" value="">
+                                                   
                                                                     </p>
                                                                     @*<p class="form-row form-row-wide address-field" id="billing_address_2_field" data-priority="60">
-                                                                        <input type="text" class="input-text " name="billing_address_2" id="billing_address_2" placeholder="Apartment, suite, unit etc. (optional)" value="" autocomplete="address-line2">
-                                                                    </p>*@
+                                                                            <input type="text" class="input-text " name="billing_address_2" id="billing_address_2" placeholder="Apartment, suite, unit etc. (optional)" value="" autocomplete="address-line2">
+                                                                        </p>*@
                                                                 </div>
                                                             </div>
-                                                        <div class="checkout_billing different_address">
-                                                            <div class="woocommerce-shipping-fields"></div>
-                                                            <div class="woocommerce-additional-fields">
-                                                            <h3>Additional information</h3>
-                                                            <div class="woocommerce-additional-fields__field-wrapper">
-                                                                <p class="form-row notes" id="order_comments_field" data-priority="">
-                                                                <label for="order_comments" class="">Order notes</label>
-                                                                <textarea name="order_comments" class="input-text " id="txtMessage" placeholder="Notes about your order, e.g. special notes for delivery." rows="2" cols="5"></textarea></p>
-                                                                 </div>
+                                                            <div class="checkout_billing different_address">
+                                                                <div class="woocommerce-shipping-fields"></div>
+                                                                <div class="woocommerce-additional-fields">
+                                                                    <h3>Additional information</h3>
+                                                                    <div class="woocommerce-additional-fields__field-wrapper">
+                                                                        <p class="form-row notes" id="order_comments_field" data-priority="">
+                                                                            <label for="order_comments" class="">Order notes</label>
+                                                                            <textarea name="order_comments" class="input-text " id="txtMessage" placeholder="Notes about your order, e.g. special notes for delivery." rows="2" cols="5"></textarea>
+                                                                        </p>
+                                                                    </div>
                                                                 </div>
+                                                            </div>
                                                         </div>
-                                                        </div> 
                                                         <div id="order_review" class="woocommerce-checkout-review-order">
                                                             <h3 id="order_review_heading">Payment Method</h3>
-   
+
                                                             <div id="payment" class="woocommerce-checkout-payment">
                                                                 <ul class="wc_payment_methods payment_methods methods">
                                                                     <li class="wc_payment_method payment_method_cheque">
@@ -249,7 +260,7 @@
                                                                     <li class="wc_payment_method payment_method_paypal">
                                                                         <input type="radio" id="rdoBank" value="ATM_ONLINE" name="paymentMethod" class="input-radio">
 
-                                                                        <label >ATM Nội Địa </label>
+                                                                        <label>ATM Nội Địa </label>
                                                                         <div id="bankContent" class="boxContent" style="display:none;">
                                                                             Danh sách ngân hàng nội địa:
                                                                             <ul class="cardList clearfix">
@@ -435,7 +446,7 @@
 
                                                                     </li>
                                                                     <li class="wc_payment_method payment_method_paypal">
-                                                                        <input class="input-radio"type="radio" id="rdoVisa" name="paymentMethod" value="VISA" data-order_button_text="Proceed to PayPal">
+                                                                        <input class="input-radio" type="radio" id="rdoVisa" name="paymentMethod" value="VISA" data-order_button_text="Proceed to PayPal">
 
                                                                         <label for="payment_method_paypal">
                                                                             PayPal <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/AM_mc_vs_ms_ae_UK.png" alt="PayPal acceptance mark"><a href="https://www.paypal.com/gb/webapps/mpp/paypal-popup" class="about_paypal" onclick="javascript:window.open('https://www.paypal.com/gb/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;">What is PayPal?</a>
@@ -461,17 +472,17 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        </div>
                                     </div>
                                 </div>
-                            </div><div class="clear"></div>
-                        </div><!-- .page-entry -->
-                    </article><!-- #post-## --><div class="clear"></div>
-                </div><!-- #main -->
-            </div>
-        </div>
+                            </div>
+                        </div><div class="clear"></div>
+                </div><!-- .page-entry -->
+                </article><!-- #post-## --><div class="clear"></div>
+            </div><!-- #main -->
         </div>
     </div>
+</div>
+
 
 <script id="tplCart" type="x-tmpl-mustache">
     <tr class="cart_item">
@@ -492,10 +503,10 @@
             </span>
         </td>
         <td class="product-quantity">
-          
-                @*<input type="number" step="1" min="0" data-id="{{ProductId}}"  data-price="{{Price}}" value="{{Quantity}}" title="Qty" class="input-text qty txtQuantity" size="4" />*@
-                <input type="number" step="1" min="1" data-id="{{ProductId}}" data-price="{{Price}}" value="{{Quantity}}" class="form-control input-small txtQuantity" size="1" style="width:20%;"/>
-          
+
+            @*<input type="number" step="1" min="0" data-id="{{ProductId}}"  data-price="{{Price}}" value="{{Quantity}}" title="Qty" class="input-text qty txtQuantity" size="4" />*@
+            <input type="number" step="1" min="1" data-id="{{ProductId}}" data-price="{{Price}}" value="{{Quantity}}" class="form-control input-small txtQuantity" size="1" style="width:20%;" />
+
         </td>
         <td class="product-subtotal">
             <span class="woocommerce-Price-amount amount">

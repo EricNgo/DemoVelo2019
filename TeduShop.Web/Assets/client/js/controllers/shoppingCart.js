@@ -1,10 +1,45 @@
-﻿
+﻿function isEmail(email) {
+    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return regex.test(email);
+}
 var cart = {
     init: function () {
         cart.loadData();
         cart.registerEvent();
     },
+   
     registerEvent: function () {
+        //$('#frmPayment').submit(function () {
+        //    var username = $('#txtName').val();
+        //    if (username == "") {
+        //        alert("Vui lòng nhập họ tên");
+        //        //$('#txtName').focus();
+        //        return false;
+        //    }
+
+        //    var phone = $('#txtPhone').val();
+        //    if (phone == "") {
+        //        alert("Vui lòng nhập số điện thoại");
+        //        $('#txtPhone').focus();
+        //        return false;
+        //    }
+
+        //    //var email = $('#txtEmail').val();
+        //    //if (email == "") {
+        //    //    alert("Vui lòng nhập email");
+        //    //    $('#txtEmail').focus();
+        //    //    return false;
+        //    //}
+
+        //    //if (validateEmail(email)) {
+        //    //    alert("Email sai định dạng");
+        //    //    $('#txtEmail').focus();
+        //    //    return false;
+        //    //}
+        //    return false;
+         
+        //});
+
       
         $('.btnDeleteItem').off('click').on('click', function (e) {
             e.preventDefault();
@@ -55,10 +90,10 @@ var cart = {
         });
         $('#btnCreateOrder').off('click').on('click', function (e) {
             e.preventDefault();
-            var isValid = $('#frmPayment').valid();
-            if (isValid) {
+            //var isValid = $('#frmPayment').submit();
+            //if (isValid) {
                 cart.createOrder();
-            }
+            //}
 
         });
 
@@ -73,32 +108,6 @@ var cart = {
             }
             else {
                 $('.boxContent').hide();
-            }
-        });
-        $('#frmPayment').validate({
-            rules: {
-                name: "required",
-                address: "required",
-                email: {
-                    required: true,
-                    email: true
-                },
-                phone: {
-                    required: true,
-                    number: true
-                }
-            },
-            messages: {
-                name: "Yêu cầu nhập tên",
-                address: "Yêu cầu nhập địa chỉ",
-                email: {
-                    required: "Bạn cần nhập email",
-                    email: "Định dạng email chưa đúng"
-                },
-                phone: {
-                    required: "Số điện thoại được yêu cầu",
-                    number: "Số điện thoại phải là số."
-                }
             }
         });
     },
@@ -223,12 +232,12 @@ var cart = {
             url: '/ShoppingCart/GetAll',
             type: 'GET',
             dataType: 'json',
+
             success: function (res) {
                 if (res.status) {
                     var template = $('#tplCart').html();
-      
+
                     var html = '';
-           
                     var data = res.data;
                     $.each(data, function (i, item) {
                         html += Mustache.render(template, {
@@ -241,21 +250,18 @@ var cart = {
                             Amount: numeral(item.Quantity * item.Product.Price).format('0,0')
                         });
                     });
-         
 
                     $('#cartBody').html(html);
 
-
                     if (html == '') {
-                        $('#cartContent').html('<strong>Hiện tại không có sản phẩm nào trong giỏ hàng.</strong>');
+                        $('#cartContent').html('Không có sản phẩm nào trong giỏ hàng.');
                     }
                     $('#lblTotalOrder').text(numeral(cart.getTotalOrder()).format('0,0'));
-                 
                     cart.registerEvent();
                 }
             }
         })
+    },
 
-    }
 }
 cart.init();

@@ -41,7 +41,7 @@ namespace TeduShop.Service
                 }
                 _unitOfWork.Commit();
                 return order;
-            }
+        }
             catch (Exception ex)
             {
                 throw;

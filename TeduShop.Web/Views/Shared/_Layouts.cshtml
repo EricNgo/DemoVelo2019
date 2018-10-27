@@ -5,8 +5,11 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link sizes="16x16" href="Assets/client/img/favicon.png" rel="icon" />
-    <script src="~/Assets/client/js/jquery.min.js"></script>
+    <script src="~/Assets/client/js/jquery-1.11.3.min.js"></script>
+        <script src="~/Assets/client/js/jquery.min.js"></script>
+    <link sizes="16x16" href="../Assets/client/img/favicon.png" rel="icon" />
+    <!---tab-->
+    @*<link href="~/Assets/admin/libs/validetta/dist/validetta.css" rel="stylesheet" />*@
     <!--animation -->
     <link rel="stylesheet" type="text/css" href="~/Assets/client/css/main.css">
     <!--Meganeu -->
@@ -20,9 +23,8 @@
     <link rel="stylesheet" type="text/css" href="~/Assets/client/css/responsive.css">
     <link href="~/Assets/client/css/js_composer.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="~/Assets/client/css/composer.css">
-
+    <link href="~/Assets/client/css/custom.css" rel="stylesheet" />
     <!-- Woocommerce -->
-
     <link rel="stylesheet" type="text/css" href="~/Assets/client/css/woocommerce.css">
     <link rel="stylesheet" type="text/css" href="~/Assets/client/css/style.css">
     <!-- Simple line icon -->
@@ -38,8 +40,6 @@
     <link rel="stylesheet" type="text/css" href="~/Assets/client/revolution/css/settings.css">
     <link rel="stylesheet" type="text/css" href="~/Assets/client/css/owl.css">
 
-    <!-- custome ATM -->
-    <link href="~/Assets/client/css/custom.css" rel="stylesheet" />
     <style type="text/css">
 
         .k2t-wrap, .container {
@@ -455,43 +455,28 @@
         }
         }
     </style>
-    <!--- VC Custom css-->
-    <style type="text/css" data-type="vc_shortcodes-custom-css">
-        .vc_custom_1433928419776 {
-            padding-bottom: 55px !important;
-        }
-
-        .vc_custom_1432802177538 {
-            padding-top: 20px !important;
-            padding-bottom: 20px !important;
-        }
-
-        .vc_custom_1433928370761 {
-            padding-right: 0px !important;
-            padding-left: 0px !important;
-        }
-    </style>
 
 
 
+
+
+</head>
+<body class="home page page-id-159 page-template-default offcanvas-type-default  offcanvas-left">
+
+
+    <div class="k2t-container">
+        @{Html.RenderAction("Header", "Home");}
+        @RenderBody()
+
+
+        @{Html.RenderAction("Footer", "Home");}
+
+    </div>
 
 
     <script src="~/Assets/client/js/jquery-migrate.min.js" type="text/javascript"></script>
     <script src="~/Assets/client/js/main.js" type="text/javascript"></script>
     <script src="~/Assets/client/js/vendor/modernizr.js" type="text/javascript"></script>
-    <!-- Countdown -->
-    <script type='text/javascript' src='~/Assets/client/js/countdown.min.js'></script>
-    <script type='text/javascript' src='~/Assets/client/js/shortcodes.js'></script>
-    <!-- Counter -->
-    <script src="~/Assets/client/js/vendor/jquery.waypoints.min.js" type="text/javascript"></script>
-    <script src="~/Assets/client/js/jquery.counterup.min.js" type="text/javascript"></script>
-    <script src="~/Assets/client/js/vendor/jquery.cbpBGSlideshow.js" type="text/javascript"></script>
-    <!-- Carousel -->
-
-    <script src="~/Assets/client/js/owl.carousel.min.js" type="text/javascript"></script>
-
-
-    <!--theme punch-->
     <!-- Isotope-->
 
     <script type='text/javascript' src="~/Assets/client/js/isotope/isotope.js"></script>
@@ -513,18 +498,187 @@
     <script type="text/javascript" src="~/Assets/client/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
     <script type="text/javascript" src="~/Assets/client/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
 
-    <!---tab-->
+    <!-- Countdown -->
+    <script type='text/javascript' src='~/Assets/client/js/countdown.min.js'></script>
+    <script type='text/javascript' src='~/Assets/client/js/shortcodes.js'></script>
+    <!-- Counter -->
+    <script src="~/Assets/client/js/vendor/jquery.waypoints.min.js" type="text/javascript"></script>
+    <script src="~/Assets/client/js/jquery.counterup.min.js" type="text/javascript"></script>
+    <script src="~/Assets/client/js/vendor/jquery.cbpBGSlideshow.js" type="text/javascript"></script>
+    <!-- Carousel -->
+
+    <script src="~/Assets/client/js/owl.carousel.min.js" type="text/javascript"></script>
     <script src="~/Assets/client/js/jquery.accordion.js"></script>
-    <script src="~/Assets/client/js/jquery-ui.js"></script>
+    <script type='text/javascript' src="~/Assets/admin/libs/jquery-ui/jquery-ui.min.js"></script>
+    <script type='text/javascript' src="~/Assets/admin/libs/mustache/mustache.js"></script>
+    <script type='text/javascript' src="~/Assets/admin/libs/numeral/numeral.js"></script>
+    <script src="~/Assets/admin/libs/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/Assets/admin/libs/jquery-validation/dist/additional-methods.min.js"></script>
+
+    <script type='text/javascript' src="~/Assets/client/js/common.js"></script>
 
 
-</head>
-<body class="home page page-id-159 page-template-default offcanvas-type-default  offcanvas-left">
-    <div class="k2t-container">
-        @{Html.RenderAction("Header", "Home");}
-        @RenderBody()
-        @{Html.RenderAction("Footer", "Home");}
+    @RenderSection("footerJS", required: false)
+
+    <div class="offcanvas-sidebar">
+        <div class="k2t-sidebar">
+            <a id="close-canvas" onclick="javascript:return false;" class="open-sidebar" href="#"></a>
+            <aside id="black-studio-tinymce-2" class="widget widget_black_studio_tinymce">
+                <div class="textwidget">
+                    <p>
+                        <a href="img/uploads/2015/07/velo-logo.png">
+                            <img class="alignnone size-full wp-image-1560" src="~/Assets/client/img/uploads/2015/07/velo-logo.png" alt="velo-logo" width="82" height="30">
+                        </a>
+                    </p>
+                </div>
+            </aside>
+            <aside id="k2t-social-3" class="widget k2t-social-widget">
+                <ul class="social">
+                    <li class="li-facebook">
+                        <a title="Facebook" href="#" rel="alternate"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li class="li-twitter">
+                        <a title="Twitter" href="#" rel="alternate"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li class="li-google-plus">
+                        <a title="Google+" href="#" rel="alternate"><i class="fa fa-google-plus"></i></a>
+                    </li>
+                    <li class="li-pinterest">
+                        <a title="Pinterest" href="#" rel="alternate"><i class="fa fa-pinterest"></i></a>
+                    </li>
+                    <li class="li-instagram">
+                        <a title="Instagram" href="#" rel="alternate"><i class="fa fa-instagram"></i></a>
+                    </li>
+                </ul>
+            </aside>
+            <aside id="nav_menu-2" class="widget widget_nav_menu">
+                <div class="menu-main-menu-container">
+                    <ul id="menu-main-menu" class="menu">
+                        <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-187 children">
+                            <a href="index.html">Home</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2055"><a href="homepage-1.html">Homepage 1</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-159 current_page_item menu-item-2056 active"><a href="index.html">Homepage 2</a></li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2057"><a href="homepage-3.html">Homepage 3</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-197 children">
+                            <a href="#">Pages</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-595">
+                                    <a href="about-us.html">About us</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-194">
+                                    <a href="under-construction.html">Under Construction</a>
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-619">
+                                    <a href="faq.html">FAQ</a>
+                                </li>
+
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-636">
+                                    <a href="contact-us.html">Contact us</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2219 children">
+                            <a href="#">Features</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-195">
+                                    <a href="typography.html">Typography</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-193">
+                                    <a href="pricing-table.html">Pricing Table</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-649">
+                                    <a href="icons.html">Icons</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-188">
+                                    <a href="elements.html">Elements</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1077 children">
+                            <a href="shop.html">Shop</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2076 children">
+                                    <a href="#">Product Types</a>
+                                    <ul class="sub-menu">
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-product menu-item-2072">
+                                            <a href="simple-product.html">Simple Product</a>
+                                        </li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-product menu-item-2071">
+                                            <a href="out-of-stock-product.html">Out Of Stock</a>
+                                        </li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-product menu-item-2073">
+                                            <a href="variable-product.html">Variable Product</a>
+                                        </li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-product menu-item-2075">
+                                            <a href="external-product.html">External Product</a>
+                                        </li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-product menu-item-2079">
+                                            <a href="grouped-product.html">Grouped Product</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2077 children">
+                                    <a href="#">Templates</a>
+                                    <ul class="sub-menu">
+
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2058">
+                                            <a href="order-tracking.html">Order Tracking</a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2078">
+                                    <a href="#">Shop Listing</a>
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2152 children">
+                                    <a href="#">Single Shop Template</a>
+                                    <ul class="sub-menu">
+                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2149">
+                                            <a href="purple-db.html">Single product Standard</a>
+                                        </li>
+                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2150">
+                                            <a href="white-cs.html">Single Product Layout 1</a>
+                                        </li>
+                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2151">
+                                            <a href="baby-blue-sport.html">Single Product Layout 2</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-224 children">
+                            <a href="#">Blog</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2060">
+                                    <a href="blog-grid.html">Blog Grid</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2061">
+                                    <a href="blog-masonry.html">Blog Masonry</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2063">
+                                    <a href="blog-wide.html">Blog Wide</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2059">
+                                    <a href="blog-fullwidth.html">Blog Fullwidth</a>
+                                </li>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2062">
+                                    <a href="blog-medium.html">Blog Medium</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
     </div>
+    <!-- Go to top -->
+    <a href="#" class="k2t-btt" style="display: inline;"><i class="fa fa-long-arrow-up"></i></a>
+
     <!-- Counter -->
     <!-- Carousel -->
     <script type="text/javascript">
@@ -732,175 +886,6 @@
         });	/*ready*/
     </script>
 
-
-    <script src="~/Assets/admin/libs/mustache/mustache.js"></script>
-    <script src="~/Assets/admin/libs/numeral/numeral.js"></script>
-
-
-    <script src="~/Assets/admin/libs/jquery-validation/dist/jquery.validate.js"></script>
-    <script src="~/Assets/admin/libs/jquery-validation/dist/additional-methods.min.js"></script>
-
-    <script src="~/Assets/client/js/common.js"></script>
-    <script src="~/Assets/client/js/controllers/shoppingCart.js"></script>
-    <!-- show offcavs sidebar -->
-    <div class="offcanvas-sidebar">
-        <div class="k2t-sidebar">
-            <a id="close-canvas" onclick="javascript:return false;" class="open-sidebar" href="#"></a>
-            <aside id="black-studio-tinymce-2" class="widget widget_black_studio_tinymce">
-                <div class="textwidget">
-                    <p>
-                        <a href="img/uploads/2015/07/velo-logo.png">
-                            <img class="alignnone size-full wp-image-1560" src="~/Assets/client/img/uploads/2015/07/velo-logo.png" alt="velo-logo" width="82" height="30">
-                        </a>
-                    </p>
-                </div>
-            </aside>
-            <aside id="k2t-social-3" class="widget k2t-social-widget">
-                <ul class="social">
-                    <li class="li-facebook">
-                        <a title="Facebook" href="#" rel="alternate"><i class="fa fa-facebook"></i></a>
-                    </li>
-                    <li class="li-twitter">
-                        <a title="Twitter" href="#" rel="alternate"><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li class="li-google-plus">
-                        <a title="Google+" href="#" rel="alternate"><i class="fa fa-google-plus"></i></a>
-                    </li>
-                    <li class="li-pinterest">
-                        <a title="Pinterest" href="#" rel="alternate"><i class="fa fa-pinterest"></i></a>
-                    </li>
-                    <li class="li-instagram">
-                        <a title="Instagram" href="#" rel="alternate"><i class="fa fa-instagram"></i></a>
-                    </li>
-                </ul>
-            </aside>
-            <aside id="nav_menu-2" class="widget widget_nav_menu">
-                <div class="menu-main-menu-container">
-                    <ul id="menu-main-menu" class="menu">
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-187 children">
-                            <a href="index.html">Home</a>
-                            <ul class="sub-menu">
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2055"><a href="homepage-1.html">Homepage 1</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-159 current_page_item menu-item-2056 active"><a href="index.html">Homepage 2</a></li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2057"><a href="homepage-3.html">Homepage 3</a></li>
-                            </ul>
-                        </li>
-                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-197 children">
-                            <a href="#">Pages</a>
-                            <ul class="sub-menu">
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-595">
-                                    <a href="about-us.html">About us</a>
-                                </li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-194">
-                                    <a href="under-construction.html">Under Construction</a>
-                                </li>
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-619">
-                                    <a href="faq.html">FAQ</a>
-                                </li>
-
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-636">
-                                    <a href="contact-us.html">Contact us</a>
-                                </li>
-
-                            </ul>
-                        </li>
-                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2219 children">
-                            <a href="#">Features</a>
-                            <ul class="sub-menu">
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-195">
-                                    <a href="typography.html">Typography</a>
-                                </li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-193">
-                                    <a href="pricing-table.html">Pricing Table</a>
-                                </li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-649">
-                                    <a href="icons.html">Icons</a>
-                                </li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-188">
-                                    <a href="elements.html">Elements</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1077 children">
-                            <a href="shop.html">Shop</a>
-                            <ul class="sub-menu">
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2076 children">
-                                    <a href="#">Product Types</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-product menu-item-2072">
-                                            <a href="simple-product.html">Simple Product</a>
-                                        </li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-product menu-item-2071">
-                                            <a href="out-of-stock-product.html">Out Of Stock</a>
-                                        </li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-product menu-item-2073">
-                                            <a href="variable-product.html">Variable Product</a>
-                                        </li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-product menu-item-2075">
-                                            <a href="external-product.html">External Product</a>
-                                        </li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-product menu-item-2079">
-                                            <a href="grouped-product.html">Grouped Product</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2077 children">
-                                    <a href="#">Templates</a>
-                                    <ul class="sub-menu">
-
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2058">
-                                            <a href="order-tracking.html">Order Tracking</a>
-                                        </li>
-
-                                    </ul>
-                                </li>
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2078">
-                                    <a href="#">Shop Listing</a>
-                                </li>
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2152 children">
-                                    <a href="#">Single Shop Template</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2149">
-                                            <a href="purple-db.html">Single product Standard</a>
-                                        </li>
-                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2150">
-                                            <a href="white-cs.html">Single Product Layout 1</a>
-                                        </li>
-                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2151">
-                                            <a href="baby-blue-sport.html">Single Product Layout 2</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-224 children">
-                            <a href="#">Blog</a>
-                            <ul class="sub-menu">
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2060">
-                                    <a href="blog-grid.html">Blog Grid</a>
-                                </li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2061">
-                                    <a href="blog-masonry.html">Blog Masonry</a>
-                                </li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2063">
-                                    <a href="blog-wide.html">Blog Wide</a>
-                                </li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2059">
-                                    <a href="blog-fullwidth.html">Blog Fullwidth</a>
-                                </li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2062">
-                                    <a href="blog-medium.html">Blog Medium</a>
-                                </li>
-
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </aside>
-        </div>
-    </div>
-    <!-- Go to top -->
-    <a href="#" class="k2t-btt" style="display: inline;"><i class="fa fa-long-arrow-up"></i></a>
 
 
 

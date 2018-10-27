@@ -17,7 +17,11 @@
     "jquery-ui": "1.12.1",
     "mustache": "~3.0.0",
     "numeral": "~1.5.3",
-    "angular-local-storage": "~0.2.7"
+    "angular-local-storage": "~0.2.7",
+    "jquery-validation": "1.18.0",
+    "validetta": "v1.0.1"
+  },
+  "resolutions": {
+    "jquery-validation": "1.18.0"
   }
-
 }
