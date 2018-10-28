@@ -8,6 +8,7 @@
 @*<link href="~/Assets/client/font-awesome/css/font-awesome.min.css" rel="stylesheet" />*@
 <link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl" rel="stylesheet" type="text/css" />
 <div class="k2t-body">
+
     <div class="k2t-title-bar  center parallax shadow" style="padding-bottom:120px;background-image: url(../Assets/client/img/uploads/2015/08/testdrive.jpg);background-position: center center;background-repeat: no-repeat;background-size: cover;" data-stellar-background-ratio="0.5">
         <div class="mask colors"></div>
         <div class="container k2t-wrap" style="padding-top:150px;">
@@ -15,92 +16,114 @@
             <div class="main-excerpt"></div><!-- .main-excerpt -->
         </div><!-- k2t-wrap -->
     </div><!-- .k2t-title-bar -->
-    <div class="k2t-content no-sidebar">
-        <div class="k2t-main page" role="main">
-            <article id="post-2171" class="post-2171 page type-page status-publish hentry">
-                <div class="page-entry">
-                    <div id="IWyxYPiGRA" class="vc_row wpb_row vc_row-fluid   vc_custom_1438590053327" style="position: relative;">
-                        <div class="container">
-                            <div style="z-index: 10; position: relative;">
-                                <div id="WwFSy4GCAQ" class="vc_col-sm-12 wpb_column vc_column_container" style="position: relative;">
-                                    <div class="wpb_wrapper">
-                                        <div class="k2t-heading align-center no-border no-subtitle underline h1 three_dotted">
-                                            <div class="k2t-heading-inner">
-                                                <div class="text"><h1 class="h"><span>Sign up for Free Account</span></h1></div>
-                                            </div>
-                                        </div>
-
-                                        <div class="wpb_text_column wpb_content_element  vc_custom_1439279571152">
-                                            <div class="wpb_wrapper">
-                                                <p style="text-align: center;">You don't have a account.Please fill up the form.</p>
-                                            </div>
-                                        </div>
-                                        <div role="form" class="wpcf7" id="wpcf7-f2166-p2171-o1" lang="en-US" dir="ltr">
-                                            <div class="screen-reader-response"></div>
-                                            <form action="#" method="post" class="wpcf7-form" novalidate="">
-                                                <div style="display: none;">
-                                                    <input type="hidden" name="_wpcf7" value="2166">
-                                                    <input type="hidden" name="_wpcf7_version" value="4.2.2">
-                                                    <input type="hidden" name="_wpcf7_locale" value="en_US">
-                                                    <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f2166-p2171-o1">
-                                                    <input type="hidden" name="_wpnonce" value="b05c693f4a">
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken();
+        @Html.ValidationSummary(false, "", new { @class = "error" })
+        if (ViewData["SuccessMsg"] != null)
+        {
+            <div class="alert alert-success" role="alert">
+                <strong>Chúc mừng bạn! </strong> đã đăng ký thành công.
+                <br />Vui lòng click <a href="/dang-nhap.html/">vào đây </a>để đăng nhập.
+            </div>
+        }
+        <div class="k2t-content no-sidebar">
+            <div class="k2t-main page" role="main">
+                <article id="post-2171" class="post-2171 page type-page status-publish hentry">
+                    <div class="page-entry">
+                        <div id="IWyxYPiGRA" class="vc_row wpb_row vc_row-fluid   vc_custom_1438590053327" style="position: relative;">
+                            <div class="container">
+                                <div style="z-index: 10; position: relative;">
+                                    <div id="WwFSy4GCAQ" class="vc_col-sm-12 wpb_column vc_column_container" style="position: relative;">
+                                        <div class="wpb_wrapper">
+                                            <div class="k2t-heading align-center no-border no-subtitle underline h1 three_dotted">
+                                                <div class="k2t-heading-inner">
+                                                    <div class="text"><h1 class="h"><span>Sign up for Free Account</span></h1></div>
                                                 </div>
+                                            </div>
 
-                                                <p class="half-col">
-                                                    <span class="wpcf7-form-control-wrap name">
-                                                        <input type="text" name="username" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="UserName*">
-                                                    </span>
-                                                    <i class="icon-star"></i>
-                                                </p>
+                                            <div class="wpb_text_column wpb_content_element  vc_custom_1439279571152">
+                                                <div class="wpb_wrapper">
+                                                    <p style="text-align: center;">You don't have a account.Please fill up the form.</p>
+                                                </div>
+                                            </div>
+                                            <div role="form" class="wpcf7" id="wpcf7-f2166-p2171-o1" lang="en-US" dir="ltr">
+                                                <div class="screen-reader-response"></div>
+                                                <form  role="form" action="#" method="post" class="wpcf7-form" >
+                                                    <div style="display: none;">
+                                                        <input type="hidden" name="_wpcf7" value="2166">
+                                                        <input type="hidden" name="_wpcf7_version" value="4.2.2">
+                                                        <input type="hidden" name="_wpcf7_locale" value="en_US">
+                                                        <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f2166-p2171-o1">
+                                                        <input type="hidden" name="_wpnonce" value="b05c693f4a">
+                                                    </div>
 
-                                                <p class="half-col">
-                                                    <span class="wpcf7-form-control-wrap name">
-                                                        <input type="text" name="password" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Password*">
-                                                    </span>
-                                                    <i class="icon-lock-open"></i>
-                                                </p>
+                                                    <p class="half-col">
+                                                        <span class="wpcf7-form-control-wrap name">
+                                                            @*<input type="text" name="username" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="UserName*">*@
+               
+                                                            @Html.TextBoxFor(model => model.UserName, new { placeholder = "Username...", @class = "wpcf7-form-control wpcf7-text wpcf7-validates-as-required" })
+                                                        </span>
+                                                        <i class="icon-star"></i>
+                                                    </p>
 
-                                                <p class="half-col">
-                                                    <span class="wpcf7-form-control-wrap name">
-                                                        <input type="text" name="name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Your Full Name*">
-                                                    </span>
-                                                    <i class="icon-user"></i>
-                                                </p>
+                                                    <p class="half-col">
+                                                        <span class="wpcf7-form-control-wrap name">
+                                                            @*<input type="text" name="password" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Password*">*@
+                                                            @Html.PasswordFor(model => model.Password, new { placeholder = "Password...", @class = "wpcf7-form-control wpcf7-text wpcf7-validates-as-required" })
+                                                        </span>
+                                                        <i class="icon-lock-open"></i>
+                                                    </p>
 
-                                                <p class="half-col">
-                                                    <span class="wpcf7-form-control-wrap email">
-                                                        <input type="email" name="email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Your Email*">
-                                                    </span>
-                                                    <i class="icon-envelope"></i>
-                                                </p>
+                                                    <p class="half-col">
+                                                        <span class="wpcf7-form-control-wrap name">
+                                                            @*<input type="text" name="name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Your Full Name*">*@
+                                                            @Html.TextBoxFor(model => model.FullName, new { placeholder = "FullName...", @class = "wpcf7-form-control wpcf7-text wpcf7-validates-as-required" })
+                                                        </span>
+                                                        <i class="icon-user"></i>
+                                                    </p>
 
-                                                <p class="half-col">
-                                                    <span class="wpcf7-form-control-wrap phone">
-                                                        <input type="tel" name="phone" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel" placeholder="Your Phone*">
-                                                    </span>
-                                                    <i class="icon-screen-smartphone"></i>
-                                                </p>
-                                                <p class="half-col">
-                                                    <span class="wpcf7-form-control-wrap location">
-                                                        <input type="text" name="location" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" placeholder="Location">
-                                                    </span>
-                                                    <i class="icon-pointer"></i>
-                                                </p>
-                                                <p style="text-align:center; margin-top: 30px">
-                                                    <input type="submit" value="Sign up" class="wpcf7-form-control wpcf7-submit">
-                                                </p>
-                                                <div class="wpcf7-response-output wpcf7-display-none"></div>
-                                            </form>
+                                                    <p class="half-col">
+                                                        <span class="wpcf7-form-control-wrap email">
+                                                            @*<input type="email" name="email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Your Email*">*@
+                                                            @Html.TextBoxFor(model => model.Email, new { placeholder = "Email...", @class = "wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" })
+                                                        </span>
+                                                        <i class="icon-envelope"></i>
+                                                    </p>
+
+                                                    <p class="half-col">
+                                                        <span class="wpcf7-form-control-wrap phone">
+                                                            @*<input type="tel" name="phone" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel" placeholder="Your Phone*">*@
+                                                            @Html.TextBoxFor(model => model.PhoneNumber, new { placeholder = "Phone Number", @class = "wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel" })
+                                                        </span>
+                                                        <i class="icon-screen-smartphone"></i>
+                                                    </p>
+                                                    <p class="half-col">
+                                                        <span class="wpcf7-form-control-wrap location">
+                                                            @{
+                                                                MvcCaptcha registerCaptcha = new MvcCaptcha("registerCaptcha");
+                                                            }
+                                                            @Html.Captcha(registerCaptcha)
+                                                            @Html.TextBox("CaptchaCode")
+                                                        </span>
+                                                        <i class="icon-pointer"></i>
+                                                    </p>
+                                                    <p style="text-align:center; margin-top: 30px">
+                                                        <input type="submit" class="wpcf7-form-control wpcf7-submit">
+                                                    </p>
+                                                    <div class="wpcf7-response-output wpcf7-display-none"></div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="clear"></div>
-                </div><!-- .page-entry -->
-            </article><!-- #post-## -->
-            <div class="clear"></div>
-        </div><!-- #main -->
-    </div><!-- .k2t-content -->
+                        <div class="clear"></div>
+                    </div><!-- .page-entry -->
+                </article><!-- #post-## -->
+                <div class="clear"></div>
+            </div><!-- #main -->
+        </div><!-- .k2t-content -->
+    }
 </div>

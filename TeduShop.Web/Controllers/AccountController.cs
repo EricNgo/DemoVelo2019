@@ -99,7 +99,7 @@ namespace TeduShop.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ExternalLogin(string provider, string returnUrl)
         {
-
+            ControllerContext.HttpContext.Session.RemoveAll();
             // Request a redirect to the external login provider
             return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
         }
@@ -200,8 +200,8 @@ namespace TeduShop.Web.Controllers
 
 
                 var adminUser = await _userManager.FindByEmailAsync(model.Email);
-                if (adminUser != null)
-                    await _userManager.AddToRolesAsync(adminUser.Id, new string[] { "User" });
+                //if (adminUser != null)
+                //    await _userManager.AddToRolesAsync(adminUser.Id, new string[] { "User1" });
 
                 string content = System.IO.File.ReadAllText(Server.MapPath("/Assets/client/template/newuser.html"));
                 content = content.Replace("{{UserName}}", adminUser.FullName);

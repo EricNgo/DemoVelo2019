@@ -3,136 +3,80 @@
     ViewBag.Title = "Register";
     Layout = "~/Views/Shared/_Layouts.cshtml";
 }
+<!-- Custom CSS -->
 
 
 <link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl" rel="stylesheet" type="text/css" />
 
+<div class="woocommerce-account woocommerce-page offcanvas-type-default  offcanvas-left">
 <div class="k2t-body">
-   
-    <div class="k2t-content no-sidebar">
-        <div class="k2t-main page" role="main">
-            <article id="post-2171" class="post-2171 page type-page status-publish hentry">
-                <div class="page-entry">
-                    <div id="IWyxYPiGRA" class="vc_row wpb_row vc_row-fluid   vc_custom_1438590053327" style="position: relative;">
-                        <div class="container">
-                            <div style="z-index: 10; position: relative;">
-                                <div id="WwFSy4GCAQ" class="vc_col-sm-12 wpb_column vc_column_container" style="position: relative;">
-                                    <div class="wpb_wrapper">
-                                        <div class="k2t-heading align-center no-border no-subtitle underline h1 three_dotted">
-                                            <div class="k2t-heading-inner">
-                                                <div class="text"><h1 class="h"><span>Create The member account</span></h1></div>
-                                            </div>
-                                        </div>
+    <div class="k2t-title-bar underline center  shadow" style="padding-top:100px;padding-bottom:100px;background-image: url(../Assets/client/img/titlebar-blog.jpg);background-position: left top;background-repeat: repeat;background-size: cover">
+        <div class="container k2t-wrap" style="">
+            <h1 class="main-title" style="font-size:30px;line-height:30px;">My Account</h1>
+            <div class="main-excerpt"></div><!-- .main-excerpt -->
+        </div><!-- k2t-wrap -->
+    </div><!-- .k2t-title-bar -->
 
-                                        <div class="wpb_text_column wpb_content_element  vc_custom_1439279571152">
-                                            <div class="wpb_wrapper">
-                                                <p style="text-align: center;">TTG Shop Welcome!</p>
-                                            </div>
-                                        </div>
-                                        <div role="form" class="wpcf7" id="wpcf7-f2166-p2171-o1" lang="en-US" dir="ltr">
-                                            <div class="screen-reader-response"></div>
-                                            <form action="#" method="post" class="wpcf7-form" novalidate="">
-                                                <div style="display: none;">
-                                                    <input type="hidden" name="_wpcf7" value="2166">
-                                                    <input type="hidden" name="_wpcf7_version" value="4.2.2">
-                                                    <input type="hidden" name="_wpcf7_locale" value="en_US">
-                                                    <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f2166-p2171-o1">
-                                                    <input type="hidden" name="_wpnonce" value="b05c693f4a">
-                                                </div>
-                                                @using (Html.BeginForm("Login", "Account", new { returnUrl = @ViewBag.ReturnUrl }, FormMethod.Post))  // trong phần startup.auth.cs
-                                                {
-                                                    @Html.ValidationSummary(false, "", new { @class = "error" })
-                                                    <p class="half-col">
-                                                        <span class="wpcf7-form-control-wrap name">
-                                                            @Html.TextBoxFor(model => model.UserName, new { placeholder = "Username..." })
-                                                        </span>
-                                                        <i class="icon-star"></i>
-                                                    </p>
+    <div class="k2t-content">
+        <div class="container k2t-wrap">
+            <div class="k2t-main page" role="main">
+                <article id="post-1090" class="post-1090 page type-page status-publish hentry">
+                    <div class="page-entry">
+                       
+                        <div class="woocommerce">
+                            <h2 style="font-size:20px;">Login</h2>
+                            @*<form action="#" method="post" class="wpcf7-form" novalidate="">*@
 
-                                                    <p class="half-col">
-                                                        <span class="wpcf7-form-control-wrap name">
-                                                            @Html.PasswordFor(model => model.Password, new { placeholder = "Password..." })
-                                                        </span>
-                                                        <i class="icon-lock-open"></i>
-                                                    </p>
-                                                
-                                                    @*<span class="meta" style="font-size: 13px;">Keep me logged in  </span>*@
-                                                    <p style="text-align:center; margin-top: 30px">
-                                                        <input type="submit" value="Login" class="wpcf7-form-control wpcf7-submit">
-                                                    </p>
-
-
-                                                }
-                                                <div class="wpcf7-response-output wpcf7-display-none"></div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                </div><!-- .page-entry -->
-            </article><!-- #post-## -->
-            <div class="clear"></div>
-        </div><!-- #main -->
-    </div><!-- .k2t-content -->
-</div>
-
-@*<div class="inner-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    <div class="form-box">
-                        <div class="form-top">
-                            <div class="form-top-left">
-                                <h3>Login to our site</h3>
-                                <p>Enter username and password to log on:</p>
-                            </div>
-                            <div class="form-top-right">
-                                <i class="fa fa-key"></i>
-                            </div>
-                        </div>
-                        <div class="form-bottom">
                             @using (Html.BeginForm("Login", "Account", new { returnUrl = @ViewBag.ReturnUrl }, FormMethod.Post))  // trong phần startup.auth.cs
                             {
                                 @Html.ValidationSummary(false, "", new { @class = "error" })
-                                <div class="form-group">
-                                    <label class="sr-only" for="form-username">Username</label>
+                            <p class="form-row form-row-wide">
+                                @*<label for="username">Username or email address <span class="required">*</span></label>*@
+                                @Html.TextBoxFor(model => model.UserName, new { @style ="width : 65%" , placeholder = "Username..." })
 
-                                    @Html.TextBoxFor(model => model.UserName, new { placeholder = "Username...", @class = "form-username form-control" })
-                                </div>
-                                <div class="form-group">
-                                    <label class="sr-only" for="form-password">Password</label>
+                                <i class="icon-star"></i>
+                            </p>
 
-                                    @Html.PasswordFor(model => model.Password, new { placeholder = "Password...", @class = "form-password form-control" })
-                                </div>
-                                <div>
-                                    @Html.CheckBoxFor(model => model.RememberMe)
-                                    Nhớ mật khẩu?
-                                </div>
-                                <button type="submit" class="btn" value="Login">Login</button>
+                                <p class="form-row form-row-wide">
+
+                                    @Html.PasswordFor(model => model.Password, new { @style = "width : 65%", placeholder = "Password..." })
+
+                                    <i class="icon-lock-open"></i>
+                                </p>
+                                <p class="form-row">
+                                    @*<input type="hidden" id="_wpnonce" name="_wpnonce" value="c425dc597f">
+                                    <input type="hidden" name="_wp_http_referer" value="">*@
+                                    <input type="submit" class="button" name="login" value="Login">
+                                    <label for="rememberme" class="inline">
+                                        <input name="rememberme" type="checkbox" id="rememberme" value="forever"> Remember me
+                                    </label>
+                                </p>
+
+
+
+
+                                @*<span class="meta" style="font-size: 13px;">Keep me logged in  </span>*@
+                                @*<p style="text-align:center; margin-top: 30px">
+                                    <input type="submit" value="Login" class="wpcf7-form-control wpcf7-submit">
+                                </p>*@
+
+
                             }
+                         
+                            @*</form>*@
+
+                            @Html.Partial("_ExternalLoginsListPartial", new TeduShop.Web.Models.ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+
+
                         </div>
-                    </div>
-
-                    <div class="social-login">
-                        <h3>...or login with:</h3>
-                        <div class="social-login-buttons">
-
-
-                                @Html.Partial("_ExternalLoginsListPartial", new TeduShop.Web.Models.ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-
-                            <a class="btn btn-link-1 btn-link-1-twitter" href="#">
-                                <i class="fa fa-twitter"></i> Twitter
-                            </a>
-                            <a class="btn btn-link-1 btn-link-1-google-plus" href="#">
-                                <i class="fa fa-google-plus"></i> Google Plus
-                            </a>
                         </div>
-                    </div>
-
-                </div>
+    
+                        <div class="clear"></div>
+                    </div><!-- .page-entry -->
+                </article><!-- #post-## -->
+                <div class="clear"></div>
             </div>
-        </div>
-    </div>*@
+            </div><!-- #main -->
+        </div><!-- .k2t-content -->
+</div>
+
