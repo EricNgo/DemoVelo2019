@@ -2,8 +2,6 @@
   "name": "ASP.NET",
   "private": true,
   "dependencies": {
-    "angular": "~1.5.5",
-    "angular-ui-router": "~0.2.18",
     "bootbox": "~4.4.0",
     "bootstrap": "~3.3.6",
     "ckeditor": "~4.10.1",
@@ -19,9 +17,15 @@
     "numeral": "~1.5.3",
     "angular-local-storage": "~0.2.7",
     "jquery-validation": "1.18.0",
-    "validetta": "v1.0.1"
+    "validetta": "v1.0.1",
+    "angular-ui-router": "1.0.18",
+    "ui-select": "angular-ui-select#v0.16.0",
+    "angular-ui-select": "v0.18.0",
+    "angular-sanitize": "v1.6.8",
+    "angular": "v1.6.8"
   },
   "resolutions": {
-    "jquery-validation": "1.18.0"
+    "jquery-validation": "1.18.0",
+    "angular": ">= 1.2.0"
   }
 }
