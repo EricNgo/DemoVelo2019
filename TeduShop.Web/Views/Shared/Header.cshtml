@@ -139,11 +139,13 @@
                         </a>
                         <div class="mega-container">
                             <ul>
-                                <li id="menu-item-1899" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1899 children k2t-megamenu-submenu">
-                                    @foreach (var category in Model.Where(x => x.ParentID == null))
-                                    {
+                                @foreach (var category in Model.Where(x => x.ParentID == null))
+                                {
+                                    var childCategories = Model.Where(x => x.ParentID == category.ID);
+                                    <li id="menu-item-1899" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1899 children k2t-megamenu-submenu">
+
                                         <a href="#" title="Product Types">@category.Name</a>
-                                        var childCategories = Model.Where(x => x.ParentID == category.ID);
+                                       
                                         <ul class="sub-menu">
                                             @if (childCategories.Count() > 0)
                                             {
@@ -158,18 +160,16 @@
                                                 }
                                             }
                                         </ul>
-                                    }
-                                </li>
-                                <li id="menu-item-1898" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1898 children k2t-megamenu-submenu">
-                                    <a href="#" title="Shop Shortcodes">Shop Shortcodes</a>
+                                        
+                                    </li>
+                                }
+                                    <li id="menu-item-1898" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1898 children k2t-megamenu-submenu">
+                                        <a href="#" title="Shop Shortcodes">Model</a>
 
-                                </li>
-                                <li id="menu-item-1901" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1901 children k2t-megamenu-submenu">
-                                    <a href="#" title="Shop Listing">Shop Listing</a>
+                                    </li>
+                    
 
-                                </li>
-
-                            </ul>
+                                </ul>
                         </div>
                     </li>
                     <li id="menu-item-2335" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2335 children ">

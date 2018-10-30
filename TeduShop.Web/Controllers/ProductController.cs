@@ -32,7 +32,7 @@ namespace TeduShop.Web.Controllers
             var productModel = _productService.GetById(productId);
             var viewModel = Mapper.Map<Product, ProductViewModel>(productModel);
 
-            var relatedProduct = _productService.GetRelatedProducts(productId, 6);
+            var relatedProduct = _productService.GetReatedProducts(productId, 6);
             ViewBag.RelatedProducts = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(relatedProduct);
 
             List<string> listImages = new JavaScriptSerializer().Deserialize<List<string>>(viewModel.MoreImages);
