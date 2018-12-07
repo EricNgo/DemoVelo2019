@@ -65,11 +65,15 @@
                                             <span>Item </span>
                                             @foreach (var tag in (IEnumerable<TeduShop.Web.Models.TagViewModel>)ViewBag.Tags)
                                             {
-                                            <span class="sku">
-                                                <a href="/tag/@(tag.ID).html/">#@(tag.Name) </a>
-                                            </span>
+
+                                                <span class="sku">
+                                                    <a href="/tag/@(tag.ID).html/">#@(tag.Name)  </a>
+                                                </span>
                                             }
-                                            </span>
+                                            @*<span class="sku">
+                                                <a href="/tag/mountain.html/">#Mountain  </a>
+                                            </span>*@
+                                        </span>
 
                                         <div>
                                             <p class="price" style="margin: 10px 0 25px; font-size: 30px"><span class="amount">&#36;850</span></p>

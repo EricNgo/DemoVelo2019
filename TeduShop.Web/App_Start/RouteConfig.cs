@@ -16,6 +16,13 @@ namespace TeduShop.Web
             routes.IgnoreRoute("{*botdetect}", new { botdetect = @"(.*)BotDetectCaptcha\.ashx" });
 
             routes.MapRoute(
+name: "Customize Product",
+url: "customize.html",
+defaults: new { controller = "Product", action = "CustomizeByTag", id = UrlParameter.Optional },
+namespaces: new string[] { "TeduShop.Web.Controllers" }
+);
+
+            routes.MapRoute(
        name: "Confirm Order",
        url: "xac-nhan-don-hang.html",
        defaults: new { controller = "ShoppingCart", action = "ConfirmOrder", id = UrlParameter.Optional },
@@ -95,6 +102,12 @@ namespaces: new string[] { "TeduShop.Web.Controllers" }
              name: "Product Category",
              url: "{alias}.pc-{id}.html",
              defaults: new { controller = "Product", action = "Category", id = UrlParameter.Optional },
+               namespaces: new string[] { "TeduShop.Web.Controllers" }
+         );
+            routes.MapRoute(
+             name: "Product All Category",
+             url: "bike-categories.html",
+             defaults: new { controller = "Product", action = "AllCategory", id = UrlParameter.Optional },
                namespaces: new string[] { "TeduShop.Web.Controllers" }
          );
 

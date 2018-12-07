@@ -141,10 +141,11 @@
                             <ul>
                                 @foreach (var category in Model.Where(x => x.ParentID == null))
                                 {
+                                    var url1 = "/" + category.Alias + ".pc-" + category.ID + ".html";
                                     var childCategories = Model.Where(x => x.ParentID == category.ID);
                                     <li id="menu-item-1899" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1899 children k2t-megamenu-submenu">
 
-                                        <a href="#" title="Product Types">@category.Name</a>
+                                        <a href="bike-categories.html" title="Product Types">@category.Name</a>
                                        
                                         <ul class="sub-menu">
                                             @if (childCategories.Count() > 0)
@@ -164,7 +165,7 @@
                                     </li>
                                 }
                                     <li id="menu-item-1898" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1898 children k2t-megamenu-submenu">
-                                        <a href="#" title="Shop Shortcodes">Model</a>
+                                        <a href="/customize.html" title="Shop Shortcodes">Customize Product</a>
 
                                     </li>
                     

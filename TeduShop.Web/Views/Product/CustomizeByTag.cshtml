@@ -1,0 +1,177 @@
+﻿@model TeduShop.Web.Infrastructure.Core.PaginationSet<TeduShop.Web.Models.ProductViewModel>
+@{
+    ViewBag.Title = "CustomizeByTag";
+
+    Layout = "~/Views/Shared/_Layouts.cshtml";
+}
+
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #FFF;
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-weight: 300;
+    }
+
+    .container {
+        width: 80%;
+        margin: 150px auto;
+    }
+
+    .item {
+        box-sizing: border-box;
+        float: left;
+        position: relative;
+        min-height: 1px;
+        padding-left: 15px;
+        padding-right: 15px;
+        width: 20%;
+        margin-bottom: 40px;
+        height: 360px;
+        max-height: 360px;
+        overflow: hidden;
+    }
+
+        .item .wrapper {
+            background-color: #f4f4f4;
+            padding: 8px;
+            height: 100%;
+        }
+
+            .item .wrapper img {
+                width: 100%;
+            }
+
+            .item .wrapper .item-tags {
+                color: #AAA;
+                font-size: 12px;
+                line-height: 1.8;
+            }
+
+    .tagsort-tags-container {
+        margin: 40px 0;
+    }
+</style>
+
+<link href="~/Assets/admin/libs/dome/tagsort.min.css" rel="stylesheet" />
+<script src="~/Assets/admin/libs/dome/tagsort.min.js"></script>
+
+
+<script>
+    jQuery(function ($) {
+        // Inclusive = when multiple tags are selected, all elements that contain ANY of those tags will be shown
+        // Exclusive = when multiple tags are selected, only elements that contain ALL of those tags will be shown
+        $('div.tags-container').tagSort({
+            selector: '.item',
+            displaySelector: '.item-tags',
+            displaySeperator: ' / ',
+            inclusive: false,
+            fadeTime: 200
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var display = $("#quizContainer .tags").css("display");
+        var display1 = $(".tags").css("display");
+        var displayOpt3 = $("#quizContainer #c #opt3").css("display");
+        var displayOpt4 = $("#quizContainer #c #opt4").css("display");
+        if (display != "none") {
+            $("#quizContainer .tags").attr("style", "display:none");
+
+        }
+        if (display1 != "none") {
+           
+            $(".tags").attr("style", "display:none");
+        }
+        //if (displayOpt3 != "none") {
+        //    $("#quizContainer #c ").attr("style", "display:none");
+    
+        //}
+        //if (displayOpt4 != "none") {
+        //    $("#quizContainer #d ").attr("style", "display:none");
+
+        //}
+        jQuery('#quizContainer').children('#c opt3[value=""]').hide();
+    });
+</script>
+
+<div class="container">
+    <div id="quizContainer" class="tags-container row">
+        <div id="question" class="question"></div>
+        <label class="option" id="a">
+            <input type="radio" name="option" value="1" />
+            <span id="opt1"></span>
+        </label>
+        <label class="option" id="b" ><input type="radio" name="option" value="2" /> <span id="opt2"></span></label>
+        <label class="option" id="c" >
+            <input type="radio" name="option" value="3" /> 
+            <span id="opt3"></span>
+        </label>
+        <label class="option" id="d" >
+            <input type="radio" name="option" value="4" />
+            <span id="opt4"></span>
+        </label>
+        <div>
+            <button id="backButton" class="back-btn" onclick="loadPrevQuestion();">Previous Question</button>
+            <button id="nextButton" class="next-btn" onclick="loadNextQuestion();">Next Question</button>
+
+        </div>
+    </div>
+    <div id="result" class="container result" style="display:none;">
+    </div>
+
+
+    <!-- tag items-->
+    <div class="tags-container row">
+
+    </div>
+    <!--------------->
+
+    @foreach (var product in Model.Items)
+    {
+
+        <div class="item col-md-3" data-item-id="1" data-item-tags="@product.Tags">
+            <div class="wrapper">
+                <img src="@product.Image" alt="@product.Name">
+
+                <h2>@product.Name</h2>
+                <p class="item-tags"></p>
+            </div>
+
+        </div>
+
+    }
+
+
+
+</div>
+
+
+<script src="../Assets/client/js/assistant/question.js"></script>
+<script src="../Assets/client/js/assistant/quiz-script.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

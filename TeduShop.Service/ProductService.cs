@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using TeduShop.Common;
+using TeduShop.Common.ViewModels;
 using TeduShop.Data.Infrastructure;
 using TeduShop.Data.Repositories;
 using TeduShop.Model.Models;
@@ -20,11 +21,14 @@ namespace TeduShop.Service
 
         IEnumerable<Product> GetAll(string keyword);
 
+
+
         IEnumerable<Product> GetLastest(int top);
 
         IEnumerable<Product> GetHotProduct(int top);
 
         IEnumerable<Product> GetListProductByCategoryIdPaging(int categoryId, int page, int pageSize, string sort, out int totalRow);
+        IEnumerable<Product> GetListProductByAllCategoryIdPaging(int page, int pageSize, string sort, out int totalRow);
 
         IEnumerable<Product> Search(string keyword, int page, int pageSize, string sort, out int totalRow);
 
@@ -39,12 +43,14 @@ namespace TeduShop.Service
         void Save();
 
         IEnumerable<Tag> GetListTagByProductId(int id);
+        IEnumerable<Tag> GetListTag();
 
         Tag GetTag(string tagId);
 
         void IncreaseView(int id);
 
         IEnumerable<Product> GetListProductByTag(string tagId, int page, int pagesize, out int totalRow);
+        IEnumerable<AllTagsViewModel> GetListProductByAllTag(IEnumerable<string> _tags, int page, int pageSize, out int totalRow);
 
         bool SellProduct(int productId, int quantity);
     }
@@ -111,6 +117,8 @@ namespace TeduShop.Service
             else
                 return _productRepository.GetAll();
         }
+
+
 
         public Product GetById(int id)
         {
@@ -185,6 +193,33 @@ namespace TeduShop.Service
             return query.Skip((page - 1) * pageSize).Take(pageSize);
         }
 
+        public IEnumerable<Product> GetListProductByAllCategoryIdPaging(int page, int pageSize, string sort, out int totalRow)
+        {
+            var query = _productRepository.GetMulti(x => x.Status);
+
+            switch (sort)
+            {
+                case "popular":
+                    query = query.OrderByDescending(x => x.ViewCount);
+                    break;
+                case "discount":
+                    query = query.OrderByDescending(x => x.PromotionPrice.HasValue);
+                    break;
+                case "price":
+                    query = query.OrderBy(x => x.Price);
+                    break;
+                default:
+                    query = query.OrderByDescending(x => x.CreatedDate);
+                    break;
+            }
+
+            totalRow = query.Count();
+
+            return query.Skip((page - 1) * pageSize).Take(pageSize);
+        }
+
+
+
         public IEnumerable<string> GetListProductByName(string name)
         {
             return _productRepository.GetMulti(x => x.Status && x.Name.Contains(name)).Select(y => y.Name);
@@ -225,6 +260,10 @@ namespace TeduShop.Service
         {
             return _productTagRepository.GetMulti(x => x.ProductID == id, new string[] { "Tag" }).Select(y => y.Tag);
         }
+        public IEnumerable<Tag> GetListTag()
+        {
+            return _productTagRepository.GetAll( new string[] { "Tag" }).Select(y => y.Tag);
+        }
 
         public void IncreaseView(int id)
         {
@@ -240,6 +279,13 @@ namespace TeduShop.Service
             var model = _productRepository.GetListProductByTag(tagId, page, pageSize, out totalRow);
             return model;
         }
+        public IEnumerable<AllTagsViewModel> GetListProductByAllTag(IEnumerable<string> _tags, int page, int pageSize, out int totalRow)
+        {
+            var model = _productRepository.GetListProductByAllTag(_tags, page, pageSize, out totalRow);
+            return model;
+        }
+
+
 
         public Tag GetTag(string tagId)
         {

@@ -3758,6 +3758,20 @@
     <Content Include="Assets\admin\libs\ckfinder\skins\v1\skin.js" />
     <Content Include="Assets\admin\libs\ckfinder\skins\v1\uipanel.css" />
     <Content Include="Assets\admin\libs\ckfinder\translations.txt" />
+    <Content Include="Assets\admin\libs\dome\images\digitalocean.jpg" />
+    <Content Include="Assets\admin\libs\dome\images\dropbox.jpg" />
+    <Content Include="Assets\admin\libs\dome\images\facebook.jpg" />
+    <Content Include="Assets\admin\libs\dome\images\keenio.jpg" />
+    <Content Include="Assets\admin\libs\dome\images\kickstarter.jpg" />
+    <Content Include="Assets\admin\libs\dome\images\netflix.jpg" />
+    <Content Include="Assets\admin\libs\dome\images\shopify.jpg" />
+    <Content Include="Assets\admin\libs\dome\images\spotify.jpg" />
+    <Content Include="Assets\admin\libs\dome\images\stackexchange.jpg" />
+    <Content Include="Assets\admin\libs\dome\images\tumblr.jpg" />
+    <Content Include="Assets\admin\libs\dome\images\twitter.jpg" />
+    <Content Include="Assets\admin\libs\dome\images\uber.jpg" />
+    <Content Include="Assets\admin\libs\dome\tagsort.min.css" />
+    <Content Include="Assets\admin\libs\dome\tagsort.min.js" />
     <Content Include="Assets\admin\libs\fastclick\lib\fastclick.js" />
     <Content Include="Assets\admin\libs\jquery-ui\.gitignore" />
     <Content Include="Assets\admin\libs\jquery-ui\jquery-ui.js" />
@@ -5189,6 +5203,8 @@
     <Content Include="Assets\admin\libs\validetta\src\validetta.css" />
     <Content Include="Assets\admin\libs\validetta\src\validetta.js" />
     <Content Include="Assets\admin\templates\product-detail.html" />
+    <Content Include="Assets\client\css\advisor-css-pBz6Qgw6.css" />
+    <Content Include="Assets\client\css\combined_v5.7.0.min.css" />
     <Content Include="Assets\client\css\composer.css" />
     <Content Include="Assets\client\css\custom.css" />
     <Content Include="Assets\client\css\icon-font-style.css" />
@@ -5205,6 +5221,7 @@
     <Content Include="Assets\client\css\syntax.css" />
     <Content Include="Assets\client\css\vendor\font-awesome.min.css" />
     <Content Include="Assets\client\css\vendor\fontawesome.min.css" />
+    <Content Include="Assets\client\css\quiz.css" />
     <Content Include="Assets\client\css\woocommerce.css" />
     <Content Include="Assets\client\img\bank_logo.png" />
     <Content Include="Assets\client\img\blockquote.png" />
@@ -5294,6 +5311,8 @@
     <Content Include="Assets\client\img\uploads\revslider\dummy.png" />
     <Content Include="Assets\client\img\uploads\revslider\home-slider\slide1.png" />
     <Content Include="Assets\client\img\uploads\revslider\home-slider\slide2.jpg" />
+    <Content Include="Assets\client\js\assistant\question.js" />
+    <Content Include="Assets\client\js\assistant\quiz-script.js" />
     <Content Include="Assets\client\js\common.js" />
     <Content Include="Assets\client\js\common1.js" />
     <Content Include="Assets\client\js\controllers\contact.js" />
@@ -5968,6 +5987,7 @@
     <Content Include="Assets\admin\libs\angular\package.json" />
     <Content Include="Assets\admin\libs\angular\README.md" />
     <Content Include="Assets\admin\templates\Import_Product.xlsx" />
+    <Content Include="Assets\admin\libs\dome\images\Thumbs.db" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <Content Include="Views\ShoppingCart\ConfirmOrder.cshtml" />
     <Content Include="Views\ShoppingCart\CancelOrder.cshtml" />
@@ -5976,6 +5996,8 @@
     <Content Include="Views\Shared\_Layouts.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Product\SideBar.cshtml" />
+    <Content Include="Views\Product\CustomizeByTag.cshtml" />
+    <Content Include="Views\Product\AllCategory.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

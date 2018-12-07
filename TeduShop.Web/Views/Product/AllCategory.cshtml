@@ -1,19 +1,27 @@
 ﻿@model TeduShop.Web.Infrastructure.Core.PaginationSet<TeduShop.Web.Models.ProductViewModel>
+
 @{
-    var tag = (TeduShop.Web.Models.TagViewModel)ViewBag.Tag;
+
+    //var category= (TeduShop.Web.Models.ProductCategoryViewModel)ViewBag.Category;
+
     var pageIndex = Model.Page;
-    ViewBag.Title = pageIndex == 1 ? "Kết quả tìm kiếm cho tag " + tag.Name : "Kết quả tìm kiếm cho tag " + tag.Name + " - Trang " + pageIndex;
-    ViewBag.MetaKeyword = pageIndex == 1 ? "Kết quả tìm kiếm cho tag " + tag.Name : "Kết quả tìm kiếm cho tag " + tag.Name + " - Trang " + pageIndex;
-
-    ViewBag.MetaDescription = pageIndex == 1 ? "Kết quả tìm kiếm cho tag " + tag.Name : "Kết quả tìm kiếm cho tag " + tag.Name + " - Trang " + pageIndex;
-
+    //ViewBag.Title = pageIndex == 1 ? category.Name : category.Name + " - Trang" + pageIndex; ;
+    //ViewBag.MetaKeyword = pageIndex == 1 ? category.MetaKeyword : category.MetaKeyword + " - Trang" + pageIndex; ;
+    //ViewBag.MetaDescription = pageIndex == 1 ? category.MetaDescription : category.MetaDescription + " - Trang" + pageIndex; ;
     Layout = "~/Views/Shared/_Layouts.cshtml";
 
 }
+<script>
+    function doNavigate() {
+        window.location.href = document.getElementById("UrlList").value;
+    }
+</script>
 <div class="single single-product woocommerce woocommerce-page offcanvas-type-default  offcanvas-left">
     <div class="k2t-body">
         @if (Model.Count > 0)
         {
+            //var startPageIndex1 = Math.Max(1, Model.Page - Model.MaxPage / 2);
+            //var endPageIndex1 = Math.Min(Model.TotalPages, Model.Page + Model.MaxPage / 2);
             <div class="k2t-title-bar underline justify  shadow" style="padding-top:100px;padding-bottom:100px;background-position: left top;background-repeat: repeat;background-size: inherit;">
                 <div class="container k2t-wrap" style="">
                     <h1 class="main-title" style="font-size:30px;line-height:30px;">Shop</h1>
@@ -25,16 +33,7 @@
                     <div id="main" class="k2t-shop columns-3">
                         <h1 class="page-title">Shop</h1>
                         <div class="page-description"><pre class="brush: php; gutter: false"></pre></div>
-                        @*<form class="woocommerce-ordering" method="get" novalidate="">
-                                <select name="orderby" class="orderby">
-                                    <option value="menu_order" selected="selected">Default sorting</option>
-                                    <option value="popularity">Sort by popularity</option>
-                                    <option value="rating">Sort by average rating</option>
-                                    <option value="date">Sort by newness</option>
-                                    <option value="price">Sort by price: low to high</option>
-                                    <option value="price-desc">Sort by price: high to low</option>
-                                </select>
-                            </form>*@
+
                         <div class="k2t-product-page">
                             <div class="product-gallery product-velo isotope-fullwidth isotope-3 pf-3col">
                                 <div class="k2t-isotope-wrapper isotope-3-columns isotope-gallery isotope-velo">
@@ -50,11 +49,13 @@
                                                         <div class="product-thumb">
                                                             <a href="@url" rel="nofollow" class="button add_to_cart_button product_type_variable">Add to cart</a>
                                                             <div>
-                                                                @if (product.PromotionPrice.HasValue)
+                                                                @if (product.PromotionPrice.HasValue && product.Quantity != 0)
                                                                 {<span class="onsale">Sale!</span>}
 
                                                                 <img width="570" height="444" src="@product.Image" class="attachment-shop_catalog wp-post-image" alt="p2">
                                                                 <div class="product-name">
+                                                                    @if (product.Quantity == 0)
+                                                                    {<span class="onsale soldout">Sold</span>}
                                                                     <div class="star-rating" title="Rated 5.00 out of 5">
                                                                         <p class="stars">
                                                                             <a class="star-5" href="#" style="margin: -40px 0px 0px 15px;"></a>
@@ -63,8 +64,11 @@
                                                                     <h3>@product.Name</h3>
                                                                     <span class="price">
                                                                         @if (product.PromotionPrice.HasValue)
-                                                                        {<del><span class="amount">$ @product.PromotionPrice.Value.ToString("N0")</span></del>}
-                                                                        <ins><span class="amount">$ @product.Price.ToString("N0")</span></ins>
+                                                                        {<ins><span class="amount">$ @product.PromotionPrice.Value.ToString("N0")</span></ins>
+                                                                        <del><span class="amount">$ @product.Price.ToString("N0")</span></del>}
+                                                                    else
+                                                                    { <ins><span class="amount">$ @product.Price.ToString("N0")</span></ins>}
+
 
                                                                     </span>
                                                                 </div>
@@ -134,21 +138,22 @@
 
                     <div class="k2t-shop-sidebar" role="complementary">
                         <aside class="widget woocommerce widget_shopping_cart">
-                            <h2 class="widget-title"><span>Cart</span></h2>
+                            <h2 class="widget-title"><span>Items</span></h2>
                             <div class="widget_shopping_cart_content">
                                 <ul class="cart_list product_list_widget ">
-                                    <li class="empty">Tag : @tag.Name -<span>@Model.TotalCount sản phẩm</span></li>
+                                    <li class="empty"> <a href="@*/@(category.Alias).pc-@(category.ID).html"*@>Tất cả sản phẩm - <span>@Model.TotalCount sản phẩm</span> </a></li>
                                 </ul><!-- end product list -->
                             </div>
                         </aside>
                         @{ Html.RenderAction("SideBar", "Product");}
                         <aside class="widget dhwc_widget_brands">
-                            <h2 class="widget-title"><span>Bike Brands</span></h2>
+                            <h2 class="widget-title"><span>Sorting Items</span></h2>
                             <ul class="product-brands">
-                                <li class="brand-item brand-item-90"><a href="#">BMX Bikes</a></li>
-                                <li class="brand-item brand-item-89"><a href="#">Cyclocross</a></li>
-                                <li class="brand-item brand-item-92"><a href="#">Sunrise Bikes</a></li>
-                                <li class="brand-item brand-item-91"><a href="#">Velo Bikes</a></li>
+                                <li class="brand-item brand-item-90"><a href="?page=@Model.Page&sort=hot" value="hot">Sorting by Hottest</a></li>
+                                <li class="brand-item brand-item-89"><a href="?page=@Model.Page&sort=popular" value="popular">Sorting by Popularity</a></li>
+                                <li class="brand-item brand-item-92"><a href="?page=@Model.Page&sort=discount" value="discount">Sorting by Discount</a></li>
+                                <li class="brand-item brand-item-90"><a href="?page=@Model.Page&sort=price" value="price">Sorting by Prices:low->high</a></li>
+
                             </ul>
                         </aside>
                         <aside class="widget widget_text">
