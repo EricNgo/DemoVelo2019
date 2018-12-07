@@ -1,78 +1,65 @@
-var questions = [{
-	"question": "Choose Adult or Kid?",
-	"option1": "Kids",
-	"option2": "Adult",
-	//"option3": "Calculator",
-	//"option4": "Processor",
+﻿var questions = [{
+	"question": "Choose Adult or Kid?",         //1
+	"option1": "Woman",
+    "option2": "Man",
+    "option3":"Both",
+
     "answer1": "1",
-    "answer2": "2"
+    "answer2": "2",
+    "answer3": "3"
 }, {
-	"question": "Choose road , you will ride bike",
+	"question": "Choose road , you will ride bike",         //2
 	"option1": "Open roads",
 	"option2": "Dirt Trails",
 	"option3": "Cities",
-	"option4": "Grand roads",
+
         "answer1": "1",
         "answer2" :"2",
         "answer3" : "3",
         "answer4" :"4"
 }, {
-	"question": "Kid's Age?",
-	"option1": "Age 2-4",
-	"option2": "Age 4-6",
-	"option3": "Age 6-8",
-        "answer1": "1",
-        "answer2": "2",
-        "answer3": "3"
-
-}, {
-	"question": "Category Bike, You choose :",
+	"question": "Category Bike, You choose :",              //từ option 1 của //2
 	"option1": "Sport",
 	"option2": "Permance or road racing",
 	"option3": "Traithon",
 
         "answer1": "1", "answer2": "2", "answer3": "3"
 }, {
-	"question": "Choose road , you will ride bike",
-	"option1": "Dirt Trails",
-	"option2": "Citities",
-	"option3": "Gravel roads",
+        "question": "How do you want to ride on trails?",
+        "option1": "Fast and fun on singletrack",           // từ option 2 của //2
+        "option2": "In cross country races",
+        "option3": "On steep technical trails",
 
-
-        "answer1": "1", "answer2": "2", "answer3": "3"
+        "answer1": "1",
+        "answer2": "2",
+        "answer3": "3"
 }, {
-	"question": "6",
-	"option1": "First generation computer",
-	"option2": "Second generation computer",
-	"option3": "Third generation computer",
-	"option4": "Fourth generation computer",
+        "question": "What riding position do you prefer?",
+        "option1": "Neutral position with flat handlebars",
+        "option2": "Multiple hand positions with drop handlebars",
+      	"option3": "Aerodynamic position",
+        "answer1": "1",
+        "answer2": "2",
+        "answer3": "3"
+}, {
+	"question": "Why do you want to ride?",
+	"option1": "I just want to ride",
+	"option2": "Fitness",
+	"option3": "Commutes",
+
 	"answer": "1"
 }, {
-	"question": "7",
-	"option1": "VLSI",
-	"option2": "LSI",
-	"option3": "ROM",
-	"option4": "RAM",
+    "question": "Which ride characteristics are most important to you? ?",
+	"option1": "Versatility and capability",
+        "option2": "Efficency and  speed",
+    "option3":"Light and quickness",
+	
 	"answer": "3"
 }, {
-	"question": "8",
-	"option1": "Ethernet",
-	"option2": "Inter LISP",
-	"option3": "Small talk",
-	"option4": "Zeta LISP",
-	"answer": "1"
-}, {
-	"question": "Find the odd one out ?",
-	"option1": "ORACLE",
-	"option2": "SYBASE",
-	"option3": "C",
-	"option4": "INFORMIX",
-	"answer": "3"
-}, {
-	"question": "The ------ is the administrative section of the computer system?",
-	"option1": "Memory Unit",
-	"option2": "Input Unit",
-	"option3": "Central Processing Unit",
-	"option4": "Control Unit",
+        "question": "How much  do you want to spend? ",
+	"option1": "0-500",
+	"option2": "500-1000",
+	"option3": "1000-4000",
+
 	"answer": "3"
 }];

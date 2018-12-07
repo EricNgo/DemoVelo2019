@@ -37,41 +37,20 @@ function loadNextQuestion () {
 		return;
 	}
 	var answer = selectedOption.value;
-	//if(questions[currentQuestion].answer == answer){
-	//	score += 10;
- //   }
+
     selectedOption.checked = false;
-    //adult or kids
-    if (questions[currentQuestion].answer1 == answer) {       //adult           
-        currentQuestion = currentQuestion + 2;        //open road ,dirt trails,cities 
-        if (questions[currentQuestion].answer2 == answer) {
-            currentQuestion = currentQuestion + 3;     //sport fitness,peformance road racing and triathon     
-            if (questions[currentQuestion].answer2 == answer) {
-                currentQuestion = currentQuestion + 3;      
 
-            }
+    currentQuestion++;
 
-        }
 
-    }
-    if (questions[currentQuestion].answer2 == answer) {  //kids
-        currentQuestion = currentQuestion + 1;
-        if (questions[currentQuestion].answer1 == answer ) {
-            currentQuestion = currentQuestion + 3;
 
-        }
-
-    }
-
-    //open road ,dirt trails,cities  >< ages 2-4,4-6,6-8
-
-	//if(currentQuestion == totQuestions - 1){
-	//	nextButton.textContent = 'Finish';
-	//}
+	if(currentQuestion == totQuestions - 1){
+		nextButton.textContent = 'Finish';
+	}
 	if(currentQuestion == totQuestions){
 		container.style.display = 'none';
 		resultCont.style.display = '';
-		resultCont.textContent = 'Your Score: ' + score;
+		resultCont.textContent = 'Product already availble :' + score;
 		return;
 	}
 	loadQuestion(currentQuestion);
